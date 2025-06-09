@@ -1,0 +1,6 @@
+openai>=1.84.0
+pypdf>=5.6.0
+gspread>=6.2.1
+google-auth>=2.30  # compatível com gspread
+requests>=2.32.3
+tenacity>=9.1.2
