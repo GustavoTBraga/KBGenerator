@@ -1,46 +1,26 @@
 #!/usr/bin/env python3
 """
-Generate FAQs in XML from Zendesk tickets (with attachments) and – optionally – store
-them in Google Sheets.
-
-Revision 2025-06-14 c
-─────────────────────────────────────────────────────────────────────────────
-✔ Corrige erro 400 quando a extensão do anexo está em maiúsculas (.PNG → .png).
-  - Filtra anexos pelo sufixo (lista oficial de extensões aceitas pela OpenAI).
-  - Normaliza a extensão para minúsculas antes do upload.
-  - Mantém logs claros para anexos enviados (✔) ou ignorados (⏭).
-
-⚠ Não houve outras mudanças funcionais.
+Generate FAQs in XML from Zendesk tickets – agora enviando imagens como `image_url`
+diretamente ao Chat-Completions (sem download/upload).
 """
 
 from __future__ import annotations
-
-import csv
-import logging
-import os
-import tempfile
+import csv, logging, os
 from pathlib import Path
 from typing import Any, Dict, List
 
-import gspread
-import openai
-import requests
+import gspread, openai, requests
 from google.oauth2.service_account import Credentials
 
-# ---------------------------------------------------------------------------
-# Logging
-# ---------------------------------------------------------------------------
+# ─────────────────── Logging ───────────────────
 logging.basicConfig(
     level=os.getenv("LOG_LEVEL", "INFO"),
     format="%(asctime)s %(levelname)s %(name)s: %(message)s",
 )
 logger = logging.getLogger("faq")
 
-# ---------------------------------------------------------------------------
-# Zendesk configuration (token ainda hard-coded; securizar depois!)
-# ---------------------------------------------------------------------------
-ZENDESK_AUTH_B64 = os.getenv("ZENDESK_AUTH_B64")  # "YXRs…Q=="
-
+# ─────────────────── Zendesk auth ───────────────
+ZENDESK_AUTH_B64 = os.getenv("ZENDESK_AUTH_B64")
 if not ZENDESK_AUTH_B64:
     logger.error("ZENDESK_AUTH_B64 não configurada")
     raise SystemExit(1)
@@ -51,122 +31,47 @@ ZENDESK_HEADERS = {
 }
 ZENDESK_BASE_URL = "https://britech.zendesk.com/api/v2"
 
-# ---------------------------------------------------------------------------
-# Extensões aceitas pela OpenAI (minúsculas, sem ponto)
-# Fonte: https://platform.openai.com/docs/guides/file-input
-# ---------------------------------------------------------------------------
-OPENAI_FILE_EXTS = {
-    "c", "cpp", "css", "csv", "doc", "docx", "gif", "go", "html", "java",
-    "jpeg", "jpg", "js", "json", "md", "pdf", "php", "pkl", "png", "pptx",
-    "py", "rb", "tar", "tex", "ts", "txt", "webp", "xlsx", "xml", "zip",
-}
+# ─────────────────── Extensões suportadas ───────
+OPENAI_IMG_EXTS = {"png", "jpg", "jpeg", "gif", "webp"}  # vision-enabled
 
-
-# ---------------------------------------------------------------------------
-# Zendesk helpers
-# ---------------------------------------------------------------------------
+# ─────────────────── Zendesk helpers ────────────
 def buscar_comentarios_zendesk(ticket_id: str) -> Dict[str, Any] | None:
-    """Fetches all comments from a single Zendesk ticket."""
     url = f"{ZENDESK_BASE_URL}/tickets/{ticket_id}/comments"
     try:
-        resp = requests.get(url, headers=ZENDESK_HEADERS, timeout=30)
-        resp.raise_for_status()
-        return resp.json()
+        r = requests.get(url, headers=ZENDESK_HEADERS, timeout=30)
+        r.raise_for_status()
+        return r.json()
     except Exception as exc:
         logger.error("[%s] Zendesk: %s", ticket_id, exc)
         return None
 
-
 def extrair_comentarios(json_resp: Dict[str, Any]) -> List[Dict[str, Any]]:
-    """Extracts text and attachments list from each comment."""
     return [
-        {
-            "texto": c.get("body", ""),
-            "attachments": c.get("attachments", []),
-        }
+        {"texto": c.get("body", ""), "attachments": c.get("attachments", [])}
         for c in json_resp.get("comments", [])
     ]
 
-
-# ---------------------------------------------------------------------------
-# Helpers de anexos
-# ---------------------------------------------------------------------------
-def _is_supported(att: Dict[str, Any]) -> bool:
-    """True se o anexo tiver extensão suportada pelo endpoint /files."""
-    ext = Path(att.get("file_name", "")).suffix.lstrip(".").lower()
-    return ext in OPENAI_FILE_EXTS
-
-
-# ---------------------------------------------------------------------------
-# OpenAI helpers
-# ---------------------------------------------------------------------------
-def upload_attachments_openai(
-    attachments: List[Dict[str, Any]],
-    client: openai.OpenAI,
-) -> List[str]:
-    """Faz upload dos anexos compatíveis e devolve a lista de file_id."""
-    file_ids: List[str] = []
-
-    for att in attachments:
-        if not _is_supported(att):
-            logger.info(
-                "⏭  Ignorando anexo não suportado (%s)",
-                att.get("file_name"),
-            )
-            continue
-
+# ─────────────────── Attachment → parts ─────────
+def _make_parts_from_attachments(texto: str, atts: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Cria partes multimodais usando somente URLs públicas."""
+    parts: List[Dict[str, Any]] = [{"type": "text", "text": texto}]
+    for att in atts:
         url = att.get("content_url")
         if not url:
             continue
 
-        original_name = att.get("file_name", "attachment")
-        base, ext = os.path.splitext(original_name)
-        safe_name = f"{base}{ext.lower()}"  # garante .png, .pdf, etc.
-
-        tmp_path: Path | None = None
-        try:
-            # 1) Cria arquivo temporário
-            with tempfile.NamedTemporaryFile(delete=False, suffix=f"_{safe_name}") as tmp:
-                tmp_path = Path(tmp.name)
-
-            # 2) Faz download stream
-            with requests.get(url, headers=ZENDESK_HEADERS, stream=True, timeout=60) as r:
-                r.raise_for_status()
-                with tmp_path.open("wb") as fh:
-                    for chunk in r.iter_content(chunk_size=1024 * 1024):
-                        fh.write(chunk)
-
-            # 3) Upload para a OpenAI
-            with tmp_path.open("rb") as fh:
-                upload = client.files.create(file=fh, purpose="assistants")
-
-            logger.info(
-                "✔ %s enviado (id=%s, %d bytes)",
-                safe_name, upload.id, upload.bytes,
-            )
-            file_ids.append(upload.id)
-
-        except Exception as exc:
-            logger.warning("Falha anexo %s – %s", url, exc)
-
-        finally:
-            if tmp_path and tmp_path.exists():
-                try:
-                    tmp_path.unlink()
-                except OSError:
-                    pass
-
-    return file_ids
-
-
-def build_multimodal_content(texto: str, file_ids: List[str]) -> List[Dict[str, Any]]:
-    """Creates the multimodal content array."""
-    parts: List[Dict[str, Any]] = [{"type": "text", "text": texto}]
-    for fid in file_ids:
-        parts.append({"type": "file", "file": {"file_id": fid}})
+        ext = Path(att.get("file_name", "")).suffix.lstrip(".").lower()
+        if ext in OPENAI_IMG_EXTS:
+            # envia como image_url
+            parts.append({"type": "image_url", "image_url": {"url": url, "detail": "auto"}})
+            logger.info("➜ imagem enviada via URL (%s)", att.get("file_name"))
+        else:
+            # outros tipos: coloca link no texto
+            parts.append({"type": "text", "text": f"[Arquivo disponível]({url})"})
+            logger.info("⏭ anexo não-imagem referenciado via link (%s)", att.get("file_name"))
     return parts
 
-
+# ─────────────────── OpenAI helper ──────────────
 def gerar_faq_openai(comentarios: List[Dict[str, Any]], ticket_id: str) -> str | None:
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
@@ -176,13 +81,26 @@ def gerar_faq_openai(comentarios: List[Dict[str, Any]], ticket_id: str) -> str |
     client = openai.OpenAI(api_key=api_key)
 
     system_prompt = (
-        "Você é um assistente de IA que recebe comentários de tickets e gera uma FAQ em XML.\n"
-        "Para cada comentário, crie um <item> com <question>/<resposta> usando SOMENTE o conteúdo "
-        "do comentário e/ou anexos.\n"
-        "Formato final:\n<Ticket>\n  <idTicket>{{ticket_id}}</idTicket>\n  <knowledge>...\n"
-        "</knowledge>\n</Ticket>\n"
-        "Substitua nomes reais por usuário1, usuário2…\n"
-        "Não invente fatos além do ticket."
+        "Você é um assistente de IA cuja função é gerar perguntas e respostas para uma base de conhecimento.\n"
+        "Você recebe um ticket de Zendesk com as respectivas trocas de mensagens entre o usuário e o agente de atendimento de suporte.\n"
+        "Você analisa a troca de mensagens considerando os respectivos anexos. \n"
+        "Como resultado da análise você deve produzir um resumo geral e as perguntas e respostas (Q&A) que agreguem à base de conhecimento.\n"
+        "Formato final:\n"
+        "<Ticket>\n"
+        "  <idTicket>{{ticket_id}}</idTicket>\n"
+        "  <Summary>\n"
+        "  </Summary>\n"
+        "  <question>\n"
+        "  </question>\n"
+        "  <answer>\n"
+        "  </answer>\n"
+        "  <question>\n"
+        "  </question>\n"
+        "  <answer>\n"
+        "  </answer>\n"
+        "  ..."       
+        "</Ticket>\n"
+        "Não invente fatos. Usar somente o que está descrito nas mensagens."
     )
 
     messages: List[Dict[str, Any]] = [
@@ -190,25 +108,24 @@ def gerar_faq_openai(comentarios: List[Dict[str, Any]], ticket_id: str) -> str |
     ]
 
     for item in comentarios:
-        fids = upload_attachments_openai(item["attachments"], client)
-        messages.append({"role": "user", "content": build_multimodal_content(item["texto"], fids)})
+        messages.append(
+            {"role": "user", "content": _make_parts_from_attachments(item["texto"], item["attachments"])}
+        )
 
     try:
-        completion = client.chat.completions.create(
+        comp = client.chat.completions.create(
             model="gpt-4o",
             messages=messages,
-            temperature=0,
-            max_tokens=10000,
+            temperature=0.2,
+            max_tokens=10_000,
         )
-        return completion.choices[0].message.content.strip()
+        resposta = comp.choices[0].message.content.strip()
+        return resposta
     except Exception as exc:
         logger.error("OpenAI: %s", exc)
         return None
 
-
-# ---------------------------------------------------------------------------
-# Google Sheets helper (opcional)
-# ---------------------------------------------------------------------------
+# ─────────────────── Google Sheets (opcional) ──
 def registrar_google_sheets(ticket_id: str, faq: str) -> bool:
     creds_json = os.getenv("GOOGLE_CREDS_JSON")
     if not creds_json:
@@ -216,8 +133,7 @@ def registrar_google_sheets(ticket_id: str, faq: str) -> bool:
         return False
     try:
         creds = Credentials.from_service_account_file(
-            creds_json,
-            scopes=["https://www.googleapis.com/auth/spreadsheets"],
+            creds_json, scopes=["https://www.googleapis.com/auth/spreadsheets"]
         )
         ws = (
             gspread.authorize(creds)
@@ -230,10 +146,7 @@ def registrar_google_sheets(ticket_id: str, faq: str) -> bool:
         logger.error("Sheets: %s", exc)
         return False
 
-
-# ---------------------------------------------------------------------------
-# Main orchestration
-# ---------------------------------------------------------------------------
+# ─────────────────── Main ───────────────────────
 def main() -> None:
     csv_path = Path("RESOLVIDOS.CSV")
     if not csv_path.exists():
@@ -265,7 +178,6 @@ def main() -> None:
             #     logger.info("✔ Ticket %s gravado.", tid)
             # else:
             #     logger.error("✘ Falha ticket %s.", tid)
-
 
 if __name__ == "__main__":
     main()
