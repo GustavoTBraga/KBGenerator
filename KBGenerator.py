@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate FAQs in XML from Zendesk tickets – agora enviando imagens como `image_url`
-diretamente ao Chat-Completions (sem download/upload).
+Generate FAQs in XML from Zendesk tickets – agora salvando todas as FAQs em um único arquivo .txt
 """
 
 from __future__ import annotations
@@ -9,8 +8,8 @@ import csv, logging, os
 from pathlib import Path
 from typing import Any, Dict, List
 
-import gspread, openai, requests
-from google.oauth2.service_account import Credentials
+import openai
+import requests
 
 # ─────────────────── Logging ───────────────────
 logging.basicConfig(
@@ -114,7 +113,7 @@ def gerar_faq_openai(comentarios: List[Dict[str, Any]], ticket_id: str) -> str |
 
     try:
         comp = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-4.1",
             messages=messages,
             temperature=0.2,
             max_tokens=10_000,
@@ -125,25 +124,16 @@ def gerar_faq_openai(comentarios: List[Dict[str, Any]], ticket_id: str) -> str |
         logger.error("OpenAI: %s", exc)
         return None
 
-# ─────────────────── Google Sheets (opcional) ──
-def registrar_google_sheets(ticket_id: str, faq: str) -> bool:
-    creds_json = os.getenv("GOOGLE_CREDS_JSON")
-    if not creds_json:
-        logger.error("GOOGLE_CREDS_JSON ausente.")
-        return False
+# ─────── Função para salvar tudo em um único TXT ───────
+def salvar_faqs_base(faq: str, base_path: str = "baseconhecimento.txt") -> bool:
     try:
-        creds = Credentials.from_service_account_file(
-            creds_json, scopes=["https://www.googleapis.com/auth/spreadsheets"]
-        )
-        ws = (
-            gspread.authorize(creds)
-            .open_by_key("1bsVVg2kCWWcA7tfAK7qEJXnFLqIC-E7MYmlZ5vj1xog")
-            .worksheet("Página1")
-        )
-        ws.append_row([ticket_id, faq])
+        with open(base_path, "a", encoding="utf-8") as f:
+            f.write(faq)
+            f.write("\n\n")  # separador opcional entre FAQs
+        logger.info("✔ FAQ adicionada ao arquivo base: %s", base_path)
         return True
     except Exception as exc:
-        logger.error("Sheets: %s", exc)
+        logger.error("Falha ao salvar FAQ na base: %s", exc)
         return False
 
 # ─────────────────── Main ───────────────────────
@@ -173,11 +163,10 @@ def main() -> None:
                 logger.warning("%s sem comentários.", tid)
                 continue
             faq_xml = gerar_faq_openai(comentarios, tid)
-            print(faq_xml)
-            # if faq_xml and registrar_google_sheets(tid, faq_xml):
-            #     logger.info("✔ Ticket %s gravado.", tid)
-            # else:
-            #     logger.error("✘ Falha ticket %s.", tid)
+            if faq_xml:
+                salvar_faqs_base(faq_xml)
+            else:
+                logger.error("✘ Falha ao gerar FAQ do ticket %s.", tid)
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,1998 @@
+<Ticket>
+  <idTicket>140560</idTicket>
+  <Summary>
+    Jéssica questionou a inconsistência na apresentação de dados de rentabilidade por estratégia e por ativo em um relatório. Dois ativos tiveram resgates totais, mas foram apresentados de forma diferente na tabela de rentabilidade: um com 0,98% de posição na carteira e outro com 0%. Munhoz esclareceu que a rentabilidade é apresentada até a data de saída do ativo, enquanto o percentual é referente ao último dia da posição.
+  </Summary>
+  <question>
+    Por que o ativo BRAD FC DE FIA CONSTELLATION aparece com 0,98% de posição na carteira após resgate total, enquanto o ativo CRA ELO AGRO CDI+6% 20/12/2024 aparece com 0%?
+  </question>
+  <answer>
+    A rentabilidade é apresentada até a data de saída do ativo, e o percentual mostrado é referente ao último dia em que a posição estava ativa. Assim, mesmo que o ativo tenha sido resgatado totalmente, a rentabilidade até o momento do resgate é exibida.
+  </answer>
+  <question>
+    Qual é a regra para apresentar a rentabilidade e a posição de ativos que tiveram resgate total no mês do relatório?
+  </question>
+  <answer>
+    A regra é que a rentabilidade do ativo seja apresentada até a data de sua saída, e o percentual de posição na carteira é referente ao último dia em que o ativo ainda estava na carteira.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>138987</idTicket>
+  <Summary>
+    O cliente identificou dados faltantes no gráfico de retorno acumulado na Classe FIP no relatório de investimentos do cliente Syngenta Perfil Moderado. A equipe de suporte verificou que a ausência de dados se deve a falhas no histórico de cotas dos ativos, especificamente para o SIGNAL CAPITAL II FIC FIP MULTIESTRATEGIA e SIGNAL CAPITAL III FI PARTICIP MULT CL A. Mesmo após a atualização do histórico de cotas em pré-produção, os buracos no gráfico persistem devido à falta de dados em datas específicas, como 30/05/2024.
+  </Summary>
+  <question>
+    O que causa os buracos no gráfico de retorno acumulado na Classe FIP?
+  </question>
+  <answer>
+    Os buracos no gráfico são causados por falhas no histórico de cotas dos ativos, onde algumas datas estão ausentes, como no caso do ativo SIGNAL CAPITAL II FIC FIP MULTIESTRATEGIA que não possui dados para o dia 30/05/2024.
+  </answer>
+  <question>
+    Como foi verificado o problema no histórico de cotas?
+  </question>
+  <answer>
+    O problema foi verificado ao gerar um novo book e analisar o histórico de cotas dos ativos, identificando a ausência de dados em datas específicas que causam os buracos no gráfico.
+  </answer>
+  <question>
+    O que foi feito para tentar resolver o problema dos buracos no gráfico?
+  </question>
+  <answer>
+    O histórico de cotas foi atualizado em pré-produção e extraído para verificar a presença de buracos. No entanto, os buracos persistem devido à falta de dados em datas específicas.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143065</idTicket>
+  <Summary>
+    O cliente enfrentou problemas com a exportação de XMLs relacionados a FIPs, especificamente com a ausência do código do ativo em produções. Após ajustes e reuniões, a questão foi resolvida com a atualização do sistema e processamento correto da data de exportação.
+  </Summary>
+  <question>
+    Qual era o problema enfrentado com os XMLs de FIPs?
+  </question>
+  <answer>
+    O problema era que o código do ativo não estava aparecendo nos XMLs de produção para participações em sociedade limitada.
+  </answer>
+  <question>
+    Como o problema foi resolvido?
+  </question>
+  <answer>
+    O problema foi resolvido processando a data da exportação do XML na nova versão do sistema.
+  </answer>
+  <question>
+    O que foi necessário para corrigir a exportação dos ativos no XML?
+  </question>
+  <answer>
+    Foi necessário abrir um chamado para a equipe de sustentação corrigir a exportação dos ativos "participação em sociedade limitada" no XML 4.01.
+  </answer>
+  <question>
+    O que o cliente deve fazer se encontrar novos problemas?
+  </question>
+  <answer>
+    O cliente deve abrir um novo chamado para qualquer dúvida ou problema futuro.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>138988</idTicket>
+  <Summary>
+    O usuário busca esclarecimentos sobre o critério utilizado para determinar o período exposto nos gráficos de retorno acumulado de ativos no Book. Ele questiona por que os gráficos começam em datas específicas, mesmo quando não há entrada de novos ativos na carteira nessas datas. O suporte esclarece que a data de início dos gráficos é baseada na série histórica de cotas dos ativos, e não nas movimentações recentes. Cada classe de ativo pode ter uma data de início diferente, determinada pela data mais recente de início de qualquer ativo na classe.
+  </Summary>
+  <question>
+    Qual é o critério para determinar o período exposto nos gráficos de retorno acumulado de ativos no Book?
+  </question>
+  <answer>
+    A data de início dos gráficos é baseada no histórico de cotas de cada ativo. Para que todos os ativos tenham a mesma data base, é verificado qual ativo tem a data de início mais recente. Todos os ativos em carteira na data base irão compor o gráfico com a mesma data de início.
+  </answer>
+  <question>
+    Por que os gráficos de todas as classes no Book estão iniciando em uma data específica, mesmo sem novas entradas de ativos nessa data?
+  </question>
+  <answer>
+    O gráfico não considera o período de cotas do fundo na carteira, mas sim a série histórica. A data de início é determinada pela menor data em que existe cota para todos os ativos daquela classe.
+  </answer>
+  <question>
+    Cada classe de ativo terá uma data de início diferente nos gráficos?
+  </question>
+  <answer>
+    Sim, cada classe pode ter uma data de início diferente, determinada pela data mais recente de início de qualquer ativo na classe.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143398</idTicket>
+  <Summary>
+    Tiago Bochi Mascarenhas solicitou o arquivo XML referente ao título "DEB FLU U AMBP16". Samyra Ledo, do serviço de atendimento ao cliente da Britech, respondeu anexando o arquivo solicitado.
+  </Summary>
+  <question>
+    Como posso obter o arquivo XML do título "DEB FLU U AMBP16"?
+  </question>
+  <answer>
+    Você pode solicitar o arquivo XML entrando em contato com o serviço de atendimento ao cliente da Britech, como fez Tiago Bochi Mascarenhas. O arquivo será enviado como anexo na resposta.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143396</idTicket>
+  <Summary>
+    O usuário solicitou o arquivo XML identificado como CRA0220060P. O agente de suporte, Samyra Ledo, respondeu anexando o arquivo solicitado na forma de um link para download.
+  </Summary>
+  <question>
+    Como posso obter o arquivo XML CRA0220060P?
+  </question>
+  <answer>
+    O arquivo XML CRA0220060P pode ser obtido através do link fornecido pelo suporte, que foi anexado na resposta ao ticket.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143616</idTicket>
+  <Summary>
+    O cliente Gustavo Schuster relatou um erro no método ExecutarPagamento relacionado a um evento de amortização. O problema foi resolvido após ajustes e reimportação do ativo. O chamado foi encerrado após confirmação de resolução.
+  </Summary>
+  <question>
+    Qual era o erro relatado no método ExecutarPagamento?
+  </question>
+  <answer>
+    O erro era "Value was either too large or too small for a Decimal", ocorrido durante o processamento de um evento de amortização.
+  </answer>
+  <question>
+    Como o problema foi resolvido?
+  </question>
+  <answer>
+    O problema foi resolvido após a reimportação do ativo e ajuste da taxa da operação.
+  </answer>
+  <question>
+    O que causava o erro no processamento?
+  </question>
+  <answer>
+    O erro ocorria ao lançar um evento de amortização no ativo. O processamento funcionava normalmente ao lançar apenas o evento de juros.
+  </answer>
+  <question>
+    O que foi solicitado ao cliente para resolver o problema?
+  </question>
+  <answer>
+    Foi solicitado que o cliente enviasse o evento que estava cadastrando para verificar a diferença com o registro.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143399</idTicket>
+  <Summary>
+    Tiago Bochi Mascarenhas, do BackOffice do Clube do Valor, solicitou o arquivo XML referente ao título CRA021000MG. Samyra Ledo, do Customer Service da Britech, respondeu anexando o arquivo solicitado.
+  </Summary>
+  <question>
+    Como posso obter o arquivo XML de um título específico?
+  </question>
+  <answer>
+    Você pode solicitar o arquivo XML de um título específico entrando em contato com o suporte ao cliente da Britech, fornecendo o código do título desejado.
+  </answer>
+  <question>
+    Quem devo contatar para obter suporte relacionado a arquivos XML de títulos?
+  </question>
+  <answer>
+    Para suporte relacionado a arquivos XML de títulos, você pode contatar Samyra Ledo, do Customer Service da Britech, através do e-mail sledo.sl@britech.global ou pelo telefone +55 (11) 2391-4995 – ramal 1067.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143725</idTicket>
+  <Summary>
+    Manuel Rodrigues de Souza Júnior, do setor de Risco e Compliance da Investcoop, relatou dificuldades em identificar o emissor de Letras Financeiras (LFs) nos relatórios de risco das carteiras e fundos, especialmente com a entrada da CVM 175, que exige maior controle de concentração. Deborah Martins, do Atlas-Risk HUB, orientou que o campo "Issuer" nos relatórios XML contém essa informação e que ele pode ser encontrado na seção "Risco/Details" do sistema.
+  </Summary>
+  <question>
+    Como posso identificar o emissor das Letras Financeiras nos relatórios de risco das carteiras e fundos?
+  </question>
+  <answer>
+    O emissor das Letras Financeiras pode ser identificado no campo "Issuer" dos relatórios XML. Essa informação está disponível na seção "Risco/Details" do sistema Atlas-Risk HUB.
+  </answer>
+  <question>
+    Onde devo procurar a informação do emissor das LFs no sistema Atlas-Risk HUB?
+  </question>
+  <answer>
+    A informação do emissor das LFs está disponível na seção "Risco/Details" do sistema Atlas-Risk HUB.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143391</idTicket>
+  <Summary>
+    O usuário solicitou o arquivo XML identificado como CRA0220079D. O agente de atendimento, Samyra Ledo, enviou o arquivo solicitado como anexo na resposta.
+  </Summary>
+  <question>
+    Como posso obter o arquivo XML CRA0220079D?
+  </question>
+  <answer>
+    O arquivo XML CRA0220079D pode ser obtido entrando em contato com o suporte ao cliente da Britech Global. No caso deste ticket, o arquivo foi enviado como anexo na resposta do agente de atendimento.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143390</idTicket>
+  <Summary>
+    O usuário solicitou o arquivo XML do ativo identificado como 24D0007011 para cadastro. O agente de suporte, Samyra Ledo, respondeu anexando o arquivo solicitado.
+  </Summary>
+  <question>
+    Como posso obter o arquivo XML do ativo 24D0007011 para cadastro?
+  </question>
+  <answer>
+    O arquivo XML do ativo 24D0007011 foi anexado na resposta do suporte. Você pode baixá-lo através do link fornecido.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143388</idTicket>
+  <Summary>
+    O usuário solicitou o arquivo XML do ativo RDORD4 para cadastro. O agente de suporte, Samyra Ledo, forneceu o arquivo solicitado como anexo na resposta.
+  </Summary>
+  <question>
+    Como posso obter o arquivo XML do ativo RDORD4 para cadastro?
+  </question>
+  <answer>
+    Você pode solicitar o arquivo XML do ativo RDORD4 ao suporte da Britech. Eles podem fornecer o arquivo como anexo em uma resposta ao seu pedido.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143638</idTicket>
+  <Summary>
+    Eduardo Ventura solicitou a desativação do risco do fundo LEME FIC FI MULTIMERCADO CRED PRIVADO. Deborah Martins confirmou a remoção dos créditos do fundo.
+  </Summary>
+  <question>
+    Como desativar o risco de um fundo específico?
+  </question>
+  <answer>
+    Para desativar o risco de um fundo, entre em contato com o suporte através do e-mail fornecido, especificando o nome do fundo e o link associado. O suporte confirmará a remoção dos créditos do fundo.
+  </answer>
+  <question>
+    Quem pode solicitar a desativação do risco de um fundo?
+  </question>
+  <answer>
+    A solicitação deve ser feita por uma pessoa autorizada, como um representante da corretora ou gestora responsável pelo fundo.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143631</idTicket>
+  <Summary>
+    O usuário relatou divergências nos valores de rentabilidade de 12 meses da carteira 1011: ROSCONI CAPITAL SARL, que não estavam coincidindo com os cálculos esperados. O problema foi identificado a partir do dia 09/01/2025, enquanto anteriormente os valores estavam corretos. Após contato telefônico com o suporte, a dúvida foi esclarecida e o chamado foi encerrado.
+  </Summary>
+  <question>
+    O que causou a divergência nos valores de rentabilidade de 12 meses da carteira 1011 a partir do dia 09/01/2025?
+  </question>
+  <answer>
+    A divergência foi causada por uma diferença no cálculo de rentabilidade que foi esclarecida após contato com o suporte. Os detalhes específicos do cálculo não foram mencionados nas mensagens, mas a questão foi resolvida após explicações via chamada telefônica.
+  </answer>
+  <question>
+    Como é calculada a rentabilidade de 12 meses para a carteira 1011?
+  </question>
+  <answer>
+    A rentabilidade de 12 meses é calculada usando a fórmula: (valor da cota atual / cota inicial - 1) x 100%. No entanto, houve uma discrepância que foi esclarecida pelo suporte.
+  </answer>
+  <question>
+    O problema de cálculo foi resolvido?
+  </question>
+  <answer>
+    Sim, o problema foi resolvido após explicações fornecidas pelo suporte durante uma chamada telefônica.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143258</idTicket>
+  <Summary>
+    O cliente solicitou habilitar o fundo Trancoso como "Zera Caixa - com aplicação" no sistema Atlas-PAS, mas o fundo BTG Tesouro Selic não aparece na lista suspensa, o que impacta a conferência de valores entre a Britech e a carteira BTG. O analista Marcelo informou que não há opção para lançamentos em fundos "Apenas Cotação", pois esses fundos não possuem carteira no sistema.
+  </Summary>
+  <question>
+    Por que o fundo BTG Tesouro Selic não aparece na lista suspensa para aplicação?
+  </question>
+  <answer>
+    O fundo BTG Tesouro Selic não aparece na lista suspensa porque não há opção para lançamentos em fundos classificados como "Apenas Cotação", já que esses fundos não possuem carteira no sistema Atlas-PAS.
+  </answer>
+  <question>
+    Qual é o impacto de não conseguir habilitar o fundo Trancoso como "Zera Caixa - com aplicação"?
+  </question>
+  <answer>
+    A impossibilidade de habilitar o fundo Trancoso como "Zera Caixa - com aplicação" gera impacto na conferência de valores entre o sistema Britech e a carteira BTG.
+  </answer>
+  <question>
+    Qual é o prazo para solução do problema?
+  </question>
+  <answer>
+    Conforme o SLA acordado, a solução definitiva ou temporária será apresentada em até 5 dias úteis.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143607</idTicket>
+  <Summary>
+    O cliente enfrentou problemas de acesso ao sistema PAS, inicialmente devido a um erro de login no banco de dados "PAS_NUBANK". Após intervenção da equipe técnica, o problema foi resolvido. Posteriormente, um novo problema de acesso ocorreu, mas foi identificado como um problema de cache no navegador do usuário, que foi resolvido ao limpar o cache.
+  </Summary>
+  <question>
+    O que causou o erro inicial de acesso ao sistema PAS?
+  </question>
+  <answer>
+    O erro inicial foi causado por uma falha de login no banco de dados "PAS_NUBANK" para o usuário 'usr_nubank'.
+  </answer>
+  <question>
+    Como o problema inicial foi resolvido?
+  </question>
+  <answer>
+    A equipe técnica interveio e conseguiu resolver o problema, permitindo que o sistema voltasse a funcionar.
+  </answer>
+  <question>
+    Qual foi a causa do segundo problema de acesso ao sistema?
+  </question>
+  <answer>
+    O segundo problema de acesso foi causado por um problema de cache no navegador do usuário.
+  </answer>
+  <question>
+    Como o segundo problema foi resolvido?
+  </question>
+  <answer>
+    O problema foi resolvido ao limpar o cache do navegador.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143385</idTicket>
+  <Summary>
+    Vinicius de Araujo Hiroi, da Principal Asset Management, solicitou ajustes nas carteiras dos fundos PRINCIPAL CLARITAS ADVISORY ICATU PREVIDENCIA FIM, PRINCIPAL CLARITAS XP TOTAL RETURN PREV FIFE FIM, e PRINCIPAL CLARITAS HEDGE MASTER FIM LONGO PRAZO. Deborah Martins, do Atlas-Risk HUB, confirmou que os ajustes foram realizados e que as carteiras estão atualizadas.
+  </Summary>
+  <question>
+    Quais fundos da Principal Asset Management precisaram de ajustes nas carteiras?
+  </question>
+  <answer>
+    Os fundos que precisaram de ajustes foram o PRINCIPAL CLARITAS ADVISORY ICATU PREVIDENCIA FIM, PRINCIPAL CLARITAS XP TOTAL RETURN PREV FIFE FIM, e PRINCIPAL CLARITAS HEDGE MASTER FIM LONGO PRAZO.
+  </answer>
+  <question>
+    Quem confirmou que as carteiras foram ajustadas?
+  </question>
+  <answer>
+    Deborah Martins, do Atlas-Risk HUB, confirmou que as carteiras foram ajustadas.
+  </answer>
+  <question>
+    O que deve ser feito caso haja necessidade de mais ajustes nas carteiras?
+  </question>
+  <answer>
+    Caso haja necessidade de mais ajustes, basta importar novamente que os ajustes das quantidades já estão implementados.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143635</idTicket>
+  <Summary>
+    O usuário Bruno Pais solicitou a correção de um "Missing Asset" conforme o anexo enviado. A agente Vanessa Guimarães identificou que o problema estava relacionado a uma compromissada que inicia e termina no mesmo dia do portfólio. Bruno informou que verificaria o problema internamente.
+  </Summary>
+  <question>
+    O que é um "Missing Asset"?
+  </question>
+  <answer>
+    Um "Missing Asset" refere-se a um ativo que está faltando ou não está sendo reconhecido corretamente em um sistema ou portfólio financeiro.
+  </answer>
+  <question>
+    Qual foi o problema identificado pela agente Vanessa Guimarães?
+  </question>
+  <answer>
+    Vanessa Guimarães identificou que o problema estava relacionado a uma compromissada que inicia e termina no mesmo dia do portfólio, o que pode estar causando o erro de "Missing Asset".
+  </answer>
+  <question>
+    Qual foi a ação tomada por Bruno Pais após a resposta da agente?
+  </question>
+  <answer>
+    Bruno Pais informou que verificaria o problema internamente.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143613</idTicket>
+  <Summary>
+    O cliente Raphael Van Kan relatou um erro na importação de um arquivo de simulação de portfólio, especificamente um problema ao executar o processo do EngineCSharp. Filipe Horiy, do suporte, reimportou o arquivo, resolvendo o problema.
+  </Summary>
+  <question>
+    Qual era o erro relatado na importação do arquivo de simulação de portfólio?
+  </question>
+  <answer>
+    O erro relatado foi "Erro ao executar o processo do EngineCSharp" durante a importação do arquivo de simulação de portfólio.
+  </answer>
+  <question>
+    Como o problema foi resolvido?
+  </question>
+  <answer>
+    Filipe Horiy reimportou o arquivo, o que resolveu o problema.
+  </answer>
+  <question>
+    Quem relatou o problema e quem solucionou?
+  </question>
+  <answer>
+    O problema foi relatado por Raphael Van Kan e solucionado por Filipe Horiy.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143519</idTicket>
+  <Summary>
+    O cliente relatou uma discrepância entre o produto da "quantidade de cotas" pelo "valor da cota" e o "valor bruto" informado para a cota investida OXSS FIDC SENIOR. O analista Roberto informou que a posição final é calculada com arredondamento na segunda casa decimal e forneceu um arquivo com o cálculo detalhado.
+  </Summary>
+  <question>
+    Qual é a discrepância relatada pelo cliente no ticket 143519?
+  </question>
+  <answer>
+    O cliente relatou que o produto da "quantidade de cotas" pelo "valor da cota" não está batendo com o "valor bruto" informado na coluna para a cota investida OXSS FIDC SENIOR.
+  </answer>
+  <question>
+    Como a empresa explicou a diferença nos valores?
+  </question>
+  <answer>
+    A empresa explicou que a posição final é calculada com arredondamento na segunda casa decimal, o que pode causar a diferença observada.
+  </answer>
+  <question>
+    Quem está responsável por atender o ticket 143519?
+  </question>
+  <answer>
+    O analista Roberto Coelho está responsável por atender o ticket 143519.
+  </answer>
+  <question>
+    Qual é o prazo para a solução do ticket conforme o SLA?
+  </question>
+  <answer>
+    A solução definitiva ou temporária será apresentada em até 5 dias úteis, conforme o SLA acordado.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143724</idTicket>
+  <Summary>
+    O ticket trata do pedido de cadastro urgente de uma debênture, identificada como CMGDA2, no sistema. Lucelia Souza, do Middle Office, solicitou o cadastro e Lucas Carneiro, do Customer Service, forneceu o arquivo XML necessário para o cadastro. O processo foi concluído com sucesso.
+  </Summary>
+  <question>
+    Como cadastrar uma debênture no sistema?
+  </question>
+  <answer>
+    Para cadastrar uma debênture no sistema, é necessário fornecer o identificador da debênture e o arquivo XML correspondente. O arquivo XML deve ser enviado para o suporte técnico, que realizará o cadastro no sistema.
+  </answer>
+  <question>
+    Qual foi a debênture solicitada para cadastro no ticket 143724?
+  </question>
+  <answer>
+    A debênture solicitada para cadastro foi a CMGDA2.
+  </answer>
+  <question>
+    Quem solicitou o cadastro da debênture CMGDA2?
+  </question>
+  <answer>
+    O cadastro da debênture CMGDA2 foi solicitado por Lucelia Souza, do Middle Office.
+  </answer>
+  <question>
+    Quem forneceu o arquivo XML necessário para o cadastro da debênture?
+  </question>
+  <answer>
+    O arquivo XML necessário para o cadastro da debênture foi fornecido por Lucas Carneiro, do Customer Service.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143383</idTicket>
+  <Summary>
+    Vinicius de Araujo Hiroi solicitou ajuda para ajustar o PRINCIPAL CLARITAS TOTAL RETURN MASTER FIM. Filipe Horiy respondeu que o ajuste foi reimportado e pediu para Vinicius avaliar.
+  </Summary>
+  <question>
+    Como ajustar o PRINCIPAL CLARITAS TOTAL RETURN MASTER FIM?
+  </question>
+  <answer>
+    O ajuste foi reimportado por Filipe Horiy. Recomenda-se avaliar as alterações feitas para garantir que estejam de acordo com as expectativas.
+  </answer>
+  <question>
+    Quem pode ser contatado para suporte adicional sobre o PRINCIPAL CLARITAS TOTAL RETURN MASTER FIM?
+  </question>
+  <answer>
+    Para suporte adicional, pode-se entrar em contato com Filipe Horiy da Atlas-Risk HUB pelo telefone +55 (11) 2391-4995.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>142698</idTicket>
+  <Summary>
+    O cliente solicitou informações sobre a possibilidade de cadastrar manualmente um Benchmark que não consta na Britech, especificamente o índice S&P 500 Total Return. Foi confirmado que é possível realizar o cadastro manualmente através do sistema, mas a atualização do índice precisa ser feita manualmente, pois não é automatizada pelo robô Importa. O cliente expressou a necessidade de automatizar essa rotina devido a problemas com cadastros manuais.
+  </Summary>
+  <question>
+    É possível cadastrar manualmente um Benchmark que não consta na Britech?
+  </question>
+  <answer>
+    Sim, é possível cadastrar manualmente um novo Benchmark no sistema Britech. O caminho para isso é: Tabelas Básicas >> Índices >> Cadastro, clicar em "NOVO" e depois informar a cotação do Benchmark manualmente em: Tabelas Básicas >> Índices >> Cotações.
+  </answer>
+  <question>
+    A atualização do índice S&P 500 Total Return pode ser feita automaticamente pelo robô Importa?
+  </question>
+  <answer>
+    Não, a atualização do índice S&P 500 Total Return precisa ser feita manualmente, pois não é automatizada pelo robô Importa.
+  </answer>
+  <question>
+    Existe algum impacto operacional ao cadastrar o índice manualmente?
+  </question>
+  <answer>
+    O impacto operacional mencionado é a necessidade de atualizar manualmente o índice, o que pode ser problemático devido a possíveis erros ou omissões no cadastro manual, conforme discutido em uma call de demandas.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143543</idTicket>
+  <Summary>
+    O usuário relatou uma discrepância no valor das cotas históricas do fundo GALOP CAPITAL MASTER FI MULT em 31/05/2024, que está impactando o valor do NAV e da cota do fundo GALOP CAPITAL FC FI MULTIMERCADO. A diferença é de 0,00000727 reais na cota e 183,11 reais no NAV. O usuário considerou importar os valores históricos via arquivo Excel, mas estava receoso sobre possíveis impactos no processamento das carteiras. O agente de suporte sugeriu o uso da planilha de crava-cota para corrigir a cota desejada.
+  </Summary>
+  <question>
+    Como corrigir uma divergência no valor das cotas históricas de um fundo?
+  </question>
+  <answer>
+    Você pode corrigir a divergência no valor das cotas históricas utilizando a planilha de crava-cota, onde é possível informar a cota desejada.
+  </answer>
+  <question>
+    Existe algum risco ao importar valores históricos de cotas via arquivo Excel?
+  </question>
+  <answer>
+    O usuário expressou receio de que a importação de valores históricos via arquivo Excel pudesse impactar o processamento das carteiras do fundo. É importante testar em um ambiente seguro ou consultar o suporte técnico antes de realizar a importação para evitar possíveis erros.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>142033</idTicket>
+  <Summary>
+    O cliente enfrenta um erro no processamento diário de uma carteira devido a uma taxa não preenchida corretamente. O problema está relacionado a um título específico que não possui uma taxa calculável com base no PU informado. Após várias tentativas de ajuste e comunicação entre o cliente e o suporte, foi identificado que o PU informado era muito baixo, causando um timeout no sistema. O suporte sugeriu ajustes nas operações dos títulos e a realização de testes adicionais. O cliente forneceu feedback e solicitou que as correções fossem aplicadas em produção. O suporte está trabalhando para resolver o problema e aguarda autorização para aplicar scripts de correção.
+  </Summary>
+  <question>
+    O que causa o erro de processamento diário na carteira?
+  </question>
+  <answer>
+    O erro é causado por uma taxa não preenchida corretamente na operação de um título específico, impossibilitando o cálculo da taxa com base no PU informado.
+  </answer>
+  <question>
+    Qual foi a solução proposta pelo suporte para resolver o problema?
+  </question>
+  <answer>
+    O suporte sugeriu ajustar o PU das operações dos títulos e realizar testes para verificar se o problema persiste. Além disso, foi proposto rodar scripts de correção após a aprovação do cliente.
+  </answer>
+  <question>
+    O que o cliente deve fazer para ajudar na resolução do problema?
+  </question>
+  <answer>
+    O cliente deve confirmar as datas corretas das operações e aprovar a execução dos scripts de correção propostos pelo suporte.
+  </answer>
+  <question>
+    O problema já foi resolvido?
+  </question>
+  <answer>
+    Ainda não. O suporte está realizando testes e aguarda a autorização do cliente para aplicar os scripts de correção em produção.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143716</idTicket>
+  <Summary>
+    João Paulo relatou uma discrepância no Patrimônio Líquido dos fundos após realizar o upload do Índice de Liquidez, comparando os valores na tela da Cyrnel com os documentos enviados. Após a intervenção de Deborah Martins, que realizou o upload das carteiras, João Paulo confirmou que o problema foi resolvido.
+  </Summary>
+  <question>
+    O que fazer se houver uma diferença no Patrimônio Líquido dos fundos após o upload do Índice de Liquidez?
+  </question>
+  <answer>
+    Verifique se os documentos foram corretamente carregados e entre em contato com o suporte para que eles possam realizar o upload das carteiras novamente, como foi feito por Deborah Martins no caso relatado.
+  </answer>
+  <question>
+    Quem pode ajudar caso haja problemas com o upload de carteiras na plataforma Atlas-Risk HUB?
+  </question>
+  <answer>
+    Você pode entrar em contato com o suporte da Atlas-Risk HUB, como fez João Paulo, que recebeu assistência de Deborah Martins.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143619</idTicket>
+  <Summary>
+    Raphael Van Kan solicitou ajuda para uma atualização de sistema. A equipe de suporte da BRITech respondeu prontamente, informando que a atualização seria realizada na manhã do mesmo dia. Posteriormente, Lucas Carneiro confirmou que a licença foi renovada com sucesso. Raphael confirmou que estava tudo em ordem.
+  </Summary>
+  <question>
+    Como solicitar uma atualização de sistema na BRITech?
+  </question>
+  <answer>
+    Para solicitar uma atualização de sistema na BRITech, entre em contato com o suporte através do e-mail ou telefone fornecidos. Inclua detalhes sobre a atualização necessária.
+  </answer>
+  <question>
+    Quanto tempo leva para a BRITech processar uma atualização de licença?
+  </question>
+  <answer>
+    A BRITech geralmente processa atualizações de licença no mesmo dia, conforme indicado na resposta rápida da equipe de suporte.
+  </answer>
+  <question>
+    Quem devo contatar na BRITech para questões de suporte?
+  </question>
+  <answer>
+    Para questões de suporte, você pode contatar Samyra Ledo ou Lucas Carneiro, cujos contatos estão disponíveis no site da BRITech.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143711</idTicket>
+  <Summary>
+    O cliente enfrentou problemas com o arquivo 5402 gerado pelo sistema, que foi rejeitado pelo validador do Bacen. O erro estava relacionado ao cadastro de fundos, especificamente no campo "Parâmetros para Fundo/Clube" e na categoria de cotas. Após ajustes nos cadastros de pessoa, o problema foi resolvido.
+  </Summary>
+  <question>
+    Qual era o problema inicial com o arquivo 5402?
+  </question>
+  <answer>
+    O arquivo 5402 estava sendo rejeitado pelo validador do Bacen devido a erros no cadastro de fundos, especificamente no campo "Parâmetros para Fundo/Clube" e na categoria de cotas.
+  </answer>
+  <question>
+    Como o problema foi resolvido?
+  </question>
+  <answer>
+    O problema foi resolvido ajustando os cadastros de pessoa para que estivessem preenchidos corretamente e de forma consistente.
+  </answer>
+  <question>
+    Quais fundos estavam apresentando erro?
+  </question>
+  <answer>
+    Os fundos com erro eram os de CNPJ 06035405000141, 18391171000154, e 33953430000187.
+  </answer>
+  <question>
+    Houve algum outro problema identificado durante o processo?
+  </question>
+  <answer>
+    Sim, foi identificado que um cliente aplicou em um fundo três vezes, mas o arquivo estava gerando duas linhas em vez de somar todas as aplicações em uma única linha.
+  </answer>
+  <question>
+    Qual foi a solução para o problema das aplicações em múltiplas linhas?
+  </question>
+  <answer>
+    A solução foi verificar e ajustar os cadastros de pessoa para garantir que estivessem preenchidos de forma idêntica.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143360</idTicket>
+  <Summary>
+Juliana Silva, da Genial Investimentos, reportou um problema na E-financeira onde cotistas sem posição em 2024 estavam apresentando saldo de 2023. Ela solicitou ajustes urgentes devido à proximidade do prazo de entrega. O caso foi encaminhado para a Sustentação pela equipe de suporte da BRITech. Além disso, foi identificado um problema adicional com um cotista que realizou um resgate total, mas o saldo retornou incorretamente. Foi sugerido marcar o campo "Gera E-financeira" como "não" para evitar exportações indesejadas.
+  </Summary>
+  <question>
+  O que foi reportado por Juliana Silva sobre a E-financeira?
+  </question>
+  <answer>
+Juliana Silva reportou que alguns cotistas sem posição em 2024 estavam apresentando saldo de 2023 na E-financeira e solicitou ajustes urgentes.
+  </answer>
+  <question>
+  Qual foi a resposta inicial do suporte da BRITech?
+  </question>
+  <answer>
+O suporte da BRITech informou que o chamado foi encaminhado à Sustentação para ajustes e que informariam sobre a entrega do item assim que possível.
+  </answer>
+  <question>
+  Qual problema adicional foi identificado por Arthur Siqueira Sobral?
+  </question>
+  <answer>
+Arthur Siqueira Sobral identificou que um cotista que realizou um resgate total teve o saldo retornado incorretamente, mostrando o valor antes do resgate.
+  </answer>
+  <question>
+  Qual solução foi sugerida para evitar exportações indesejadas na E-financeira?
+  </question>
+  <answer>
+Foi sugerido marcar o campo "Gera E-financeira" como "não" no menu de Cadastro de Carteiras para evitar que carteiras administradas sejam exportadas indevidamente.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>142730</idTicket>
+  <Summary>
+    O ticket trata de um problema com o diferimento do valor da taxa de fiscalização da CVM, onde foi identificado que a contabilização está sendo feita de forma incorreta. O valor mencionado é de R$ 30.357,96 para "semente universal". O analista Arthur está responsável pelo atendimento e uma reunião foi sugerida para esclarecer a questão.
+  </Summary>
+  <question>
+    Qual é o problema identificado com o diferimento da taxa de fiscalização da CVM?
+  </question>
+  <answer>
+    O problema identificado é que a contabilização do diferimento da taxa de fiscalização da CVM está sendo feita de forma incorreta.
+  </answer>
+  <question>
+    Qual é o valor mencionado para o diferimento da taxa?
+  </question>
+  <answer>
+    O valor mencionado para o diferimento da taxa é de R$ 30.357,96.
+  </answer>
+  <question>
+    Quem está responsável pelo atendimento do ticket?
+  </question>
+  <answer>
+    O analista Arthur está responsável pelo atendimento do ticket.
+  </answer>
+  <question>
+    Qual foi a ação sugerida para resolver o problema?
+  </question>
+  <answer>
+    Foi sugerida a marcação de uma reunião para entender melhor o problema.
+  </answer>
+</Ticket>
+
+<ticket>
+  <idTicket>143569</idTicket>
+  <Summary>
+  O cliente relatou um problema com a rentabilidade acumulada de 12 meses de uma carteira no sistema, que está incorreta a partir de 16/11/2023. A carteira começou em 15/11/2022 com um aporte de 1 milhão de dólares e não houve movimentações adicionais. O suporte explicou o cálculo utilizado para a rentabilidade de 12 meses, mas o cliente não concordou com os resultados apresentados. O cliente solicitou uma reunião para discutir os cálculos detalhadamente.
+  </Summary>
+  <question>
+  Qual é o problema relatado com a rentabilidade acumulada de 12 meses da carteira?
+  </question>
+  <answer>
+  A rentabilidade acumulada de 12 meses está incorreta a partir de 16/11/2023, apesar de as cotas e o histórico estarem corretos até essa data.
+  </answer>
+  <question>
+  Como o suporte explicou o cálculo da rentabilidade de 12 meses?
+  </question>
+  <answer>
+  O suporte explicou que o cálculo é feito dividindo a cota do dia atual pela cota do mesmo dia do ano anterior, menos um, multiplicado por 100.
+  </answer>
+  <question>
+  O cliente concordou com a explicação do suporte sobre o cálculo da rentabilidade?
+  </question>
+  <answer>
+  Não, o cliente não concordou e afirmou que os cálculos não batem com os valores do relatório de histórico de cotas.
+  </answer>
+  <question>
+  O que o cliente solicitou para resolver o problema?
+  </question>
+  <answer>
+  O cliente solicitou uma reunião com um especialista para revisar os cálculos de rentabilidade detalhadamente.
+  </answer>
+</ticket>
+
+<Ticket>
+  <idTicket>143433</idTicket>
+  <Summary>
+    El usuario solicitó un dashboard para identificar si los portafolios de los clientes tienen sus cuentas de cash sobregiradas. La solución propuesta fue agregar el widget de Saldos de caja/Efectivo y realizar la búsqueda por listas. El problema fue resuelto con esta alternativa.
+  </Summary>
+  <question>
+    ¿Cómo puedo identificar si los portafolios de los clientes tienen sus cuentas de cash sobregiradas?
+  </question>
+  <answer>
+    Puedes agregar el widget de Saldos de caja/Efectivo y realizar la búsqueda por listas para identificar si los portafolios de los clientes tienen sus cuentas de cash sobregiradas.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143431</idTicket>
+  <Summary>
+    El usuario reportó que la API no estaba trayendo los datos de impuestos retenidos en las transacciones. Solicitó que se añadiera el campo "Tax2" en la consulta SQL utilizada en la función /api/DatabaseQuery/Get. El problema fue solucionado tras la implementación de la modificación solicitada.
+  </Summary>
+  <question>
+    ¿Cómo puedo obtener los datos de impuestos retenidos en las transacciones a través de la API?
+  </question>
+  <answer>
+    Para obtener los datos de impuestos retenidos en las transacciones, asegúrate de que la consulta SQL utilizada en la función /api/DatabaseQuery/Get incluya el campo "Tax2". Esto fue implementado para solucionar el problema de lentitud en la API y asegurar que los datos de impuestos sean retornados correctamente.
+  </answer>
+  <question>
+    ¿Qué cambio se realizó para solucionar el problema de la API que no traía los datos de impuestos?
+  </question>
+  <answer>
+    Se agregó el campo "Tax2" en la consulta SQL dentro de la función /api/DatabaseQuery/Get. Esto permitió que la API comenzara a traer los datos de impuestos retenidos en las transacciones.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>141983</idTicket>
+  <Summary>
+    O fornecedor solicitou o desenvolvimento de uma API para buscar informações de fundos por CNPJ. Durante os testes, houve dificuldades de acesso devido à falta de parâmetros e possíveis remoções do ambiente de homologação. Após ajustes, a API foi validada e está pronta para ser movida para produção.
+  </Summary>
+  <question>
+    Qual era a necessidade do fornecedor em relação à API?
+  </question>
+  <answer>
+    O fornecedor precisava de uma API para buscar informações de fundos por CNPJ e obter o ID Cliente do fundo no payload de resposta.
+  </answer>
+  <question>
+    Qual foi o problema encontrado durante os testes da API?
+  </question>
+  <answer>
+    O problema foi a falta de parâmetros na URL e a possível remoção da API do ambiente de homologação, o que impediu o acesso e a validação inicial.
+  </answer>
+  <question>
+    Como o problema foi resolvido?
+  </question>
+  <answer>
+    O problema foi resolvido ao adicionar o parâmetro CNPJ na URL, permitindo que a API funcionasse corretamente no ambiente de homologação.
+  </answer>
+  <question>
+    Qual foi o próximo passo após a validação da API?
+  </question>
+  <answer>
+    Após a validação, foi solicitado que a API fosse movida para o ambiente de produção.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143717</idTicket>
+  <Summary>
+    O cliente enfrentou um erro ao processar a abertura de carteira devido à falta de cotação para o indexador CDI em uma data futura. O problema foi resolvido com a ajuda do suporte, que orientou o cliente a cadastrar manualmente a cotação necessária. O chamado foi encerrado a pedido do cliente.
+  </Summary>
+  <question>
+    Qual era o erro encontrado ao processar a abertura de carteira?
+  </question>
+  <answer>
+    O erro indicava que estava faltando cotação para o indexador CDI na data de 18/03/2025.
+  </answer>
+  <question>
+    Como o problema foi resolvido?
+  </question>
+  <answer>
+    O problema foi resolvido cadastrando manualmente a cotação do CDI para a data necessária, seguindo as instruções do suporte.
+  </answer>
+  <question>
+    Quem auxiliou na resolução do problema?
+  </question>
+  <answer>
+    O Sr. Marcelo do suporte ao cliente auxiliou na resolução do problema.
+  </answer>
+  <question>
+    O que o cliente solicitou após a resolução do problema?
+  </question>
+  <answer>
+    O cliente solicitou o encerramento do chamado.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143457</idTicket>
+  <Summary>
+    O usuário relatou uma irregularidade nos rendimentos líquidos do cotista Renato Bartolomeu Filho, onde um valor de 89.480,46 foi vinculado a uma classe sem posição do cotista. O mesmo problema ocorreu para outros cotistas do PRECAVIDA. O analista Roberto Coelho esclareceu que o pagamento de juros ocorreu em 19/08/2024, enquanto a cisão do passivo foi em 31/10/2024, quando a posição ainda estava na antiga Subordinada. O usuário questionou como conferir o valor de rendimento líquido, que não coincide com o extrato de resgates e amortizações, e foi orientado a somar somente os valores líquidos pagos referentes a juros.
+  </Summary>
+  <question>
+    Como posso conferir o valor de rendimento líquido que não bate com o extrato de resgates e amortizações?
+  </question>
+  <answer>
+    Para conferir o valor de rendimento líquido, some somente os valores líquidos pagos referentes a juros.
+  </answer>
+  <question>
+    Por que o valor de 89.480,46 foi vinculado a uma classe sem posição do cotista?
+  </question>
+  <answer>
+    Houve um pagamento de juros em 19/08/2024, e a cisão do passivo ocorreu em 31/10/2024. Naquela data, a posição do cotista ainda estava na antiga Subordinada.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143523</idTicket>
+  <Summary>
+    O cliente Henrique Mennella Nogueira relatou um erro de processamento na carteira CLIU, onde o sistema indicava que não havia saldo disponível para resgate, apesar de o cliente possuir saldo conforme verificado na tela. O analista Arthur Siqueira Sobral identificou que o valor a ser resgatado era maior que o patrimônio líquido (PL) da carteira devido a uma provisão de taxa de administração. Arthur solicitou que Henrique verificasse se essas provisões permaneceriam na carteira após o resgate de toda a conta corrente.
+  </Summary>
+  <question>
+    O que pode causar um erro de saldo indisponível para resgate em uma carteira de investimentos?
+  </question>
+  <answer>
+    Um erro de saldo indisponível para resgate pode ocorrer se o valor a ser resgatado for maior que o patrimônio líquido da carteira devido a provisões, como a de taxa de administração, que afetam o saldo disponível para resgate.
+  </answer>
+  <question>
+    Como verificar se as provisões de taxa de administração vão se manter na carteira após um resgate?
+  </question>
+  <answer>
+    É necessário revisar as provisões atuais na carteira e avaliar se elas serão ajustadas ou removidas após o resgate. Isso pode exigir uma análise detalhada das condições contratuais e das regras de cálculo aplicáveis à carteira.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143514</idTicket>
+  <Summary>
+    O cliente Henrique Mennella relatou problemas de processamento relacionados a erros de conexão com o servidor para os clientes 3016 e 3484. Após tentativas iniciais de solução sem sucesso, uma reunião foi agendada com a equipe de infraestrutura da Britech. Após a reunião, o problema foi resolvido pela equipe de infraestrutura.
+  </Summary>
+  <question>
+    Quais eram os erros de processamento relatados pelo cliente?
+  </question>
+  <answer>
+    Os erros relatados incluíam mensagens de que a execução não poderia continuar porque a sessão estava no estado de kill, e um erro de nível de transporte ocorreu ao enviar a solicitação para o servidor, com a conexão existente sendo fechada à força pelo host remoto.
+  </answer>
+  <question>
+    Qual foi a solução para os erros de processamento relatados?
+  </question>
+  <answer>
+    A solução foi alcançada após uma reunião com a equipe de infraestrutura da Britech, que resolveu o problema.
+  </answer>
+  <question>
+    Como foi realizada a comunicação para resolver o problema?
+  </question>
+  <answer>
+    A comunicação foi realizada através de e-mails e uma reunião via Microsoft Teams entre o cliente e a equipe de infraestrutura da Britech.
+  </answer>
+  <question>
+    O que o cliente deve fazer após a resolução do problema?
+  </question>
+  <answer>
+    O cliente foi solicitado a validar a resolução do problema e avaliar o chamado.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143589</idTicket>
+  <Summary>
+    Henrique Mennella relatou que o fundo SPECIALE KINEA DEB INCENT FIRF, que é isento, está apresentando rentabilidade sem o GrossUp na carteira MHDS. Ele verificou que a tributação do fundo está isenta e que o GrossUp está cadastrado como "Sempre" na tela de Cadastro do Cliente. Ele questiona se há outra tela onde a função de GrossUp deve ser cadastrada para o cálculo correto da rentabilidade. Lucas Carneiro solicitou o ID do fundo e a data verificada, que foram fornecidos por Henrique. Marcos Costa enviou um exemplo para o dia 27/02/2025 para auxiliar na resolução do problema.
+  </Summary>
+  <question>
+    Existe alguma outra tela onde devemos cadastrar a função de GrossUp para o cálculo correto da rentabilidade de um fundo isento?
+  </question>
+  <answer>
+    Não foi especificado nas mensagens se há outra tela além da tela de Cadastro do Cliente onde o GrossUp deve ser cadastrado. Recomenda-se verificar com o suporte técnico ou consultar a documentação do sistema para informações adicionais.
+  </answer>
+  <question>
+    Qual é o ID do fundo SPECIALE KINEA DEB INCENT FIRF e a data verificada?
+  </question>
+  <answer>
+    O ID do fundo é 8169768 e a data verificada é 28/02/2025.
+  </answer>
+  <question>
+    Como posso acessar o exemplo fornecido para o dia 27/02/2025?
+  </question>
+  <answer>
+    O exemplo para o dia 27/02/2025 pode ser acessado através do arquivo disponibilizado no link: [Chamado 143589.xlsx](https://britech.zendesk.com/attachments/token/p32Pr64nfUFhWKL2HQymWiA8b/?name=Chamado+143589.xlsx).
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143642</idTicket>
+  <Summary>
+    O usuário estava enfrentando um erro 404 ao tentar utilizar uma API em ambiente de homologação, recebendo a mensagem "acesso inválido" e "Método não existente". Após comunicação com o suporte, o problema foi ajustado e o usuário confirmou a validação bem-sucedida.
+  </Summary>
+  <question>
+    O que significa o erro 404 com a mensagem "acesso inválido" e "Método não existente" ao usar a API?
+  </question>
+  <answer>
+    O erro 404 indica que o recurso solicitado não foi encontrado no servidor. A mensagem "acesso inválido" e "Método não existente" sugere que a URL ou o método da API pode estar incorreto ou não disponível.
+  </answer>
+  <question>
+    Como resolver o erro 404 ao acessar uma API em ambiente de homologação?
+  </question>
+  <answer>
+    Verifique se a URL e o método da API estão corretos. Entre em contato com o suporte técnico para confirmar se o endpoint está disponível e se há alguma configuração necessária para o acesso.
+  </answer>
+  <question>
+    O que fazer após o ajuste de um problema de API?
+  </question>
+  <answer>
+    Realize testes para validar se o problema foi resolvido e se a API está funcionando conforme esperado. Confirme com o suporte técnico caso necessário.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>139799</idTicket>
+  <Summary>
+    O cliente Genial estava enfrentando dificuldades para encontrar dados de retorno importantes para a integração com a API da Britech. Foram solicitados mapeamentos específicos, como Série Cota, Classe Cota, e informações sobre taxas. Após algumas interações e ajustes, as APIs foram parcialmente ajustadas, mas ainda há necessidade de desenvolvimento de novas APIs para taxas ADM/Gestão e Pfee. O cliente confirmou que os ajustes nas APIs existentes funcionaram e aguarda o desenvolvimento das novas APIs.
+  </Summary>
+  <question>
+    Quais informações estavam faltando no retorno da API da Britech para o cliente Genial?
+  </question>
+  <answer>
+    Estavam faltando informações sobre Série Cota, Classe Cota, Aceita posição short, Regime especial de tributação, Tipo de Domicílio, Taxa Administração, Taxa Pfee, Taxas de Custódia e Taxa Gestão.
+  </answer>
+  <question>
+    Quais endpoints foram ajustados para atender às necessidades do cliente?
+  </question>
+  <answer>
+    Os endpoints ajustados foram /Api/GET-api-Fundo-BuscaCarteira_idCarteira e api/Common/BuscaPessoaPorIdExterno?idPessoaExterna={idPessoaExterna}, incluindo campos como FdoClasseSerie, Fundo, TipoTributacao, RegimeEspecialTributacao e OffShore.
+  </answer>
+  <question>
+    Qual foi o resultado dos ajustes realizados nas APIs?
+  </question>
+  <answer>
+    Os ajustes nas APIs funcionaram conforme esperado, mas ainda há necessidade de desenvolver novas APIs para capturar e alterar informações de taxas ADM/Gestão e Pfee.
+  </answer>
+  <question>
+    Qual é o próximo passo após a validação das APIs ajustadas?
+  </question>
+  <answer>
+    O próximo passo é o desenvolvimento de novas APIs para capturar e alterar informações de taxas ADM/Gestão e Pfee, conforme solicitado pelo cliente.
+  </answer>
+</Ticket>
+
+```xml
+<Ticket>
+  <idTicket>143645</idTicket>
+  <Summary>
+    O cliente Yasmin Ananias reportou uma discrepância na rentabilidade de ativos entre a carteira mãe (64123) e a carteira filha (64). Apesar de tentativas de correção, as diferenças persistem. O analista Roberto Coelho está tratando o caso e uma reunião foi agendada para resolver a questão.
+  </Summary>
+  <question>
+    Quais ativos estão apresentando diferenças de rentabilidade entre as carteiras mãe e filha?
+  </question>
+  <answer>
+    Os ativos com diferenças de rentabilidade são: 52457, 52176, 52446 e 52328.
+  </answer>
+  <question>
+    Qual foi a solução proposta inicialmente para corrigir a discrepância de rentabilidade?
+  </question>
+  <answer>
+    Foi sugerido executar o Processo Rentabilidade (Processamento > Processo Rentabilidade) da carteira mãe nas datas desejadas.
+  </answer>
+  <question>
+    A execução do Processo Rentabilidade resolveu o problema?
+  </question>
+  <answer>
+    Não, as variações na rentabilidade dos ativos continuaram após a execução do processo.
+  </answer>
+  <question>
+    Qual é o próximo passo para resolver o problema de rentabilidade?
+  </question>
+  <answer>
+    Uma reunião foi agendada para as 17h para discutir e resolver o problema.
+  </answer>
+</Ticket>
+```
+
+<Ticket>
+  <idTicket>143341</idTicket>
+  <Summary>
+    Rafaella Medeiros Trexler Mourão enfrentou dificuldades ao tentar cadastrar ativos e fazer o upload de um portfólio na plataforma BRITech. Apesar de várias tentativas, as informações não eram exibidas corretamente. Deborah Martins, do suporte, identificou que o problema estava relacionado a duplicidades nos cadastros dos ativos. Foi sugerido que Rafaella selecionasse quais ativos deveriam ser considerados para evitar duplicidades. Uma reunião foi marcada para esclarecer dúvidas e ajustar os cadastros.
+  </Summary>
+  <question>
+    Por que as informações do portfólio não estão sendo exibidas após o upload?
+  </question>
+  <answer>
+    As informações não estão sendo exibidas devido a duplicidades nos cadastros dos ativos. É necessário selecionar quais ativos serão considerados para evitar conflitos no sistema.
+  </answer>
+  <question>
+    Como resolver o problema de duplicidade nos cadastros dos ativos?
+  </question>
+  <answer>
+    É necessário revisar a planilha de cadastro, selecionar os ativos corretos e garantir que não haja duplicidades. Caso haja ativos com taxas diferentes, é preciso alterar o ticker para diferenciá-los.
+  </answer>
+  <question>
+    O que foi feito para solucionar o problema de cadastro e upload do portfólio?
+  </question>
+  <answer>
+    Foram realizados ajustes nos cadastros customizados e um novo upload da carteira foi feito. Uma reunião foi marcada para esclarecer dúvidas e discutir os cadastros.
+  </answer>
+  <question>
+    Como evitar problemas futuros com o cadastro de ativos na plataforma?
+  </question>
+  <answer>
+    Para evitar problemas, é importante garantir que não haja duplicidades nos cadastros e que cada ativo tenha um identificador único, especialmente se houver variações de taxas.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143706</idTicket>
+  <Summary>
+    O usuário relatou estar recebendo uma mensagem de "Licença vencida" apesar de a instalação ter a licença válida até 19/03/2025. A equipe de suporte da Britech Global foi contatada para resolver o problema. Samyra Ledo informou que a atualização necessária seria realizada na manhã seguinte. Posteriormente, Lucas Carneiro confirmou que a licença foi renovada.
+  </Summary>
+  <question>
+    O que fazer quando recebo uma mensagem de "Licença vencida" mesmo com a licença válida?
+  </question>
+  <answer>
+    Entre em contato com o suporte da Britech Global para verificar e atualizar a licença. Eles podem realizar a atualização necessária para corrigir o problema.
+  </answer>
+  <question>
+    Quem posso contatar na Britech Global para resolver problemas de licença?
+  </question>
+  <answer>
+    Você pode entrar em contato com Samyra Ledo ou Lucas Carneiro do Customer Service da Britech Global. Os contatos são sledo.sl@britech.global e lcarneiro@britech.global, respectivamente.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143363</idTicket>
+  <Summary>
+Vinicius de Araujo Hiroi, da Principal Asset Management, questionou sobre a necessidade de ajustes do PU nas carteiras da Mellon. Deborah Martins, do Atlas-Risk HUB, informou que as correções de lotsize foram implementadas, mas os ajustes de PU ainda precisam ser feitos pela equipe de Vinicius. Além disso, foi solicitado o cadastro do ativo AZUL13, que foi realizado por Filipe Horiy, permitindo a reimportação dos dados.
+  </Summary>
+  <question>
+O ajuste do PU nas carteiras da Mellon já foi realizado automaticamente no sistema?
+  </question>
+  <answer>
+Não, os ajustes de PU ainda precisam ser feitos pela equipe da Principal Asset Management.
+  </answer>
+  <question>
+O ativo AZUL13 foi cadastrado no sistema?
+  </question>
+  <answer>
+Sim, o ativo AZUL13 foi cadastrado e está pronto para reimportação.
+  </answer>
+  <question>
+Quem é responsável por implementar as correções de PU?
+  </question>
+  <answer>
+A equipe da Principal Asset Management é responsável por implementar as correções de PU.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143361</idTicket>
+  <Summary>
+    O cliente solicitou o cadastro de uma debênture (ECOV17) e a orientação sobre como subir o arquivo XML no sistema. O atendimento foi classificado como prioridade alta e está sendo tratado pela analista Patricia Araujo. Um arquivo relacionado à debênture foi enviado como anexo.
+  </Summary>
+  <question>
+    Como cadastrar uma nova debênture no sistema?
+  </question>
+  <answer>
+    Para cadastrar uma nova debênture no sistema, é necessário acessar a área de cadastro de títulos e preencher as informações solicitadas, como o ticker da debênture (por exemplo, ECOV17). Caso precise de assistência, entre em contato com o suporte técnico.
+  </answer>
+  <question>
+    Como subir um arquivo XML no sistema?
+  </question>
+  <answer>
+    O procedimento para subir um arquivo XML no sistema pode variar conforme a plataforma utilizada. Recomenda-se seguir as instruções específicas fornecidas pelo suporte técnico ou consultar o manual do usuário da plataforma.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143291</idTicket>
+  <Summary>
+    O cliente encontrou um problema ao tentar realizar a cisão do fundo 831 para o fundo 9000831. O passivo foi processado corretamente, mas houve um erro no processamento do ativo, resultando na mensagem "value was either too large or too small". O suporte tentou replicar o problema em um ambiente de homologação, mas não conseguiu reproduzir o erro. Foi sugerido agendar uma reunião para montar o cenário novamente e investigar o problema.
+  </Summary>
+  <question>
+    O que ocorreu durante a tentativa de cisão do fundo 831 para o fundo 9000831?
+  </question>
+  <answer>
+    Durante a tentativa de cisão do fundo 831 para o fundo 9000831, o passivo foi processado corretamente, mas houve um erro no processamento do ativo, resultando na mensagem "value was either too large or too small".
+  </answer>
+  <question>
+    Quais ações foram tentadas para resolver o problema com o ativo durante a cisão do fundo?
+  </question>
+  <answer>
+    Foram tentadas ações manuais, como depositar a quantidade informada no fundo 831 através do módulo de outros ativos no fundo 9000831 e também no módulo de renda fixa, mas o erro persistiu.
+  </answer>
+  <question>
+    O que o suporte sugeriu para resolver o problema?
+  </question>
+  <answer>
+    O suporte sugeriu agendar uma reunião para montar o cenário novamente e investigar o problema, já que não conseguiram reproduzir o erro em seu ambiente de homologação.
+  </answer>
+  <question>
+    O chamado foi encerrado?
+  </question>
+  <answer>
+    Sim, após a resposta do analista e a tentativa de resolver o problema, o chamado foi encerrado.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143350</idTicket>
+  <Summary>
+    O ticket 143350 refere-se à emissão de uma nota comercial para a empresa VEQUIS COMÉRCIO, IMPORTAÇÃO E EXPORTAÇÃO LTDA. O pedido foi encaminhado para o time responsável realizar o cadastramento necessário. O atendimento está sendo conduzido pela analista Patricia Araujo e está classificado como prioridade normal, com um prazo de até 5 dias úteis para solução, conforme o SLA acordado.
+  </Summary>
+  <question>
+    Qual é o prazo para a solução do ticket 143350?
+  </question>
+  <answer>
+    O prazo para a solução do ticket 143350 é de até 5 dias úteis, conforme o SLA acordado.
+  </answer>
+  <question>
+    Quem está responsável pelo atendimento do ticket 143350?
+  </question>
+  <answer>
+    A analista Patricia Araujo está responsável pelo atendimento do ticket 143350.
+  </answer>
+  <question>
+    Qual é a prioridade do ticket 143350?
+  </question>
+  <answer>
+    O ticket 143350 está classificado como prioridade normal.
+  </answer>
+  <question>
+    Qual é o procedimento a ser realizado para o ticket 143350?
+  </question>
+  <answer>
+    O procedimento a ser realizado é o cadastramento da emissão da nota comercial para a empresa VEQUIS COMÉRCIO, IMPORTAÇÃO E EXPORTAÇÃO LTDA.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143580</idTicket>
+  <Summary>
+    O cliente Henrique Lang relatou um problema no cálculo de taxa de performance para a carteira 761122, onde a data de corte estava incorreta. O sistema estava utilizando a data de 30/09/2024 em vez de 09/09/2024. O problema foi encaminhado para a Sustentação e um script foi priorizado e executado para corrigir a questão. A solução foi aprovada e implementada com sucesso.
+  </Summary>
+  <question>
+    Qual era o problema relatado no cálculo de taxa de performance da carteira 761122?
+  </question>
+  <answer>
+    O sistema estava utilizando a data de 30/09/2024 como data de corte para o cálculo da nova taxa de performance, quando a data correta deveria ser 09/09/2024.
+  </answer>
+  <question>
+    Como o problema foi resolvido?
+  </question>
+  <answer>
+    Um script foi priorizado e executado para corrigir a data de corte no cálculo da taxa de performance, conforme solicitado pelo cliente.
+  </answer>
+  <question>
+    O que foi necessário para a execução do script de correção?
+  </question>
+  <answer>
+    Foi necessário aprovar uma GMUD (Gestão de Mudanças) antes de executar o script em produção.
+  </answer>
+  <question>
+    O problema foi resolvido com sucesso?
+  </question>
+  <answer>
+    Sim, após a execução do script, o cliente confirmou que o cálculo estava correto.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143688</idTicket>
+  <Summary>
+    Tiago Bochi Mascarenhas solicitou o XML do título CRI22L1465644. Lucas Carneiro, do Customer Service da Britech, respondeu fornecendo o link para download do arquivo XML solicitado.
+  </Summary>
+  <question>
+    Como posso obter o XML do título CRI22L1465644?
+  </question>
+  <answer>
+    Você pode obter o XML do título CRI22L1465644 através do link fornecido pelo suporte: [Arquivo disponível](https://britech.zendesk.com/attachments/token/6qp3pZpUM07G6q6fnhRwZG5s3/?name=22L1465644.txt).
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143695</idTicket>
+  <Summary>
+    O cliente solicitou a reativação de uma licença de sistema. Foi solicitado um print da tela com informações do ambiente para verificar se o sistema está sendo utilizado corretamente. Após o envio das informações, foi necessário confirmar se o ambiente era referente à base histórica contratada ou se estava sendo utilizado sem conhecimento da empresa. A licença foi enviada posteriormente.
+  </Summary>
+  <question>
+    Como solicitar a reativação de uma licença de sistema?
+  </question>
+  <answer>
+    Para solicitar a reativação de uma licença de sistema, envie um pedido formal ao suporte, incluindo qualquer documentação necessária, como arquivos de licença anteriores.
+  </answer>
+  <question>
+    Quais informações são necessárias para verificar o ambiente de um sistema?
+  </question>
+  <answer>
+    É necessário enviar um print da tela que contenha informações detalhadas do ambiente, como versão do sistema, servidor, banco de dados e status da licença.
+  </answer>
+  <question>
+    O que fazer se houver suspeita de uso não autorizado de um sistema?
+  </question>
+  <answer>
+    Entre em contato com o cliente para confirmar se o ambiente em questão é o contratado. Caso contrário, investigue se o sistema está sendo utilizado sem autorização.
+  </answer>
+  <question>
+    Como proceder após o envio de uma nova licença?
+  </question>
+  <answer>
+    Após o envio de uma nova licença, confirme com o cliente se a reativação foi bem-sucedida e se o sistema está funcionando corretamente.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143657</idTicket>
+  <Summary>
+    O cliente GUARDIAN solicitou a reimplantação do sistema, necessitando que o banco de dados da Baseline seja aplicado no ambiente especificado. A atualização da Baseline foi confirmada.
+  </Summary>
+  <question>
+    O que é necessário para realizar uma reimplantação do sistema para o cliente GUARDIAN?
+  </question>
+  <answer>
+    Para realizar a reimplantação do sistema para o cliente GUARDIAN, é necessário aplicar o banco de dados da Baseline no ambiente especificado.
+  </answer>
+  <question>
+    Qual é o ambiente onde o banco de dados da Baseline deve ser aplicado para o cliente GUARDIAN?
+  </question>
+  <answer>
+    O banco de dados da Baseline deve ser aplicado no ambiente: https://guardian.britech.com.br/PAS/
+  </answer>
+  <question>
+    A Baseline já foi atualizada para a reimplantação do cliente GUARDIAN?
+  </question>
+  <answer>
+    Sim, a Baseline foi atualizada.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143609</idTicket>
+  <Summary>
+    O sistema estava fora do ar devido a um erro de login no banco de dados "PAS_TAG", impactando a operação do cliente. O time técnico foi acionado e resolveu o problema, normalizando o ambiente.
+  </Summary>
+  <question>
+    O que causou a indisponibilidade do sistema?
+  </question>
+  <answer>
+    A indisponibilidade foi causada por um erro de login no banco de dados "PAS_TAG", conforme indicado na mensagem de erro.
+  </answer>
+  <question>
+    Como o problema foi resolvido?
+  </question>
+  <answer>
+    O time técnico foi acionado e conseguiu resolver o problema, restabelecendo o acesso ao sistema.
+  </answer>
+  <question>
+    Qual foi a resposta do cliente após a resolução do problema?
+  </question>
+  <answer>
+    O cliente confirmou que o sistema voltou ao normal e agradeceu pelo suporte.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143601</idTicket>
+  <Summary>
+    Rafael Luiz Giannella relatou um problema no processamento de arquivos XML ANBIMA, onde o sistema acusava uma data incorreta. Após verificação, Deborah Martins confirmou que a importação dos arquivos foi realizada com sucesso, sugerindo que o problema pode ter sido uma instabilidade temporária. Rafael confirmou que o problema foi resolvido e que apenas os arquivos daquele fundo específico apresentaram o erro.
+  </Summary>
+  <question>
+    O que causou o erro de data incorreta no processamento dos arquivos XML ANBIMA?
+  </question>
+  <answer>
+    O erro pode ter sido causado por uma instabilidade temporária no sistema, pois a importação dos arquivos foi realizada com sucesso posteriormente.
+  </answer>
+  <question>
+    O problema de data incorreta afetou outros arquivos além dos mencionados?
+  </question>
+  <answer>
+    Não, apenas os arquivos do fundo específico mencionado apresentaram o erro. Todos os demais arquivos estavam corretos.
+  </answer>
+  <question>
+    Como foi resolvido o problema de processamento dos arquivos XML?
+  </question>
+  <answer>
+    A importação dos arquivos foi realizada com sucesso após uma tentativa posterior, indicando que o problema pode ter sido uma instabilidade temporária.
+  </answer>
+</Ticket>
+
+```xml
+<Ticket>
+  <idTicket>142633</idTicket>
+  <Summary>
+    O ticket trata de um problema no sistema que não está refletindo corretamente a baixa de juros de CDCA's em carteiras de clientes, especificamente para o título com Id 1000003495. O valor do juros não está sendo ajustado corretamente na agenda de eventos, e o PU esperado após o cadastro do evento não está correto. Além disso, foi identificado que a carteira 4866 não está calculando rendimento a partir de 02/01. A equipe de suporte está trabalhando em uma solução, com previsão de entrega inicial para 31/01, mas precisou ser adiada. Ajustes manuais paliativos foram realizados, mas uma solução definitiva é necessária.
+  </Summary>
+  <question>
+    Qual é o problema relatado com o sistema em relação aos CDCA's?
+  </question>
+  <answer>
+    O sistema não está refletindo corretamente a baixa de juros dos CDCA's na agenda de eventos, ajustando o valor do dia incorretamente.
+  </answer>
+  <question>
+    Qual é o Id do título afetado e o valor do juros esperado?
+  </question>
+  <answer>
+    O Id do título afetado é 1000003495 e o valor do juros esperado é 45,77530044275775.
+  </answer>
+  <question>
+    Qual foi a solução paliativa adotada enquanto a correção definitiva não é implementada?
+  </question>
+  <answer>
+    Foi lançado um MTM Manual a partir do dia do evento, 15/01/2025, como solução paliativa.
+  </answer>
+  <question>
+    Qual é a nova previsão de entrega da solução definitiva?
+  </question>
+  <answer>
+    A nova previsão de entrega da solução definitiva foi adiada para terça-feira, após discussões com o time de sustentação.
+  </answer>
+  <question>
+    O que deve ser ajustado no título CDCA 1000003495?
+  </question>
+  <answer>
+    Deve-se acertar o cadastro do título e importar a Agenda de Eventos via Menu de Integrações.
+  </answer>
+  <question>
+    O que foi identificado na carteira 4866?
+  </question>
+  <answer>
+    Foi identificado que a carteira 4866 não está calculando rendimento a partir de 02/01.
+  </answer>
+  <question>
+    Qual foi a instrução para o título 1000004018 que não funcionou?
+  </question>
+  <answer>
+    Foi instruído ajustar o PU Nominal do título, mas as adequações não funcionaram para a carteira 50343.
+  </answer>
+</Ticket>
+```
+
+<Ticket>
+  <idTicket>143394</idTicket>
+  <Summary>
+    O usuário questionou se poderia utilizar arquivos disponibilizados pela B3 para a importação de eventos de distribuição de lucros, ao invés dos arquivos atualmente utilizados (PAPT e PROD). O agente de suporte informou que não é possível, pois a extensão dos arquivos deve ser .TXT ou .DAT.
+  </Summary>
+  <question>
+    Podemos utilizar arquivos disponibilizados pela B3 para a importação de eventos de distribuição de lucros?
+  </question>
+  <answer>
+    Não, não é possível utilizar arquivos da B3 para a importação de eventos de distribuição de lucros, pois a extensão dos arquivos deve ser .TXT ou .DAT.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143220</idTicket>
+  <Summary>
+    O ticket trata de uma questão relacionada à emissão de uma nota comercial pela Vequis Comércio, Importação e Exportação Ltda, com vencimento em 03/02/2025. A cliente, Roberta, solicitou o cadastro de um arquivo, mas houve uma discrepância entre os dados da planilha enviada e os dados da escritura, especificamente em relação aos pagamentos, vencimento e valor nominal. Patricia Araujo, do serviço de atendimento ao cliente, enviou uma tabela corrigida conforme a escritura e solicitou que, caso a planilha se refira a outro ativo ou tenha ocorrido alguma alteração, seja encaminhada para atualização.
+  </Summary>
+  <question>
+    O que fazer se os dados de uma planilha não condizem com os dados da escritura de um ativo?
+  </question>
+  <answer>
+    Se os dados de uma planilha não condizem com os dados da escritura de um ativo, deve-se verificar se a planilha se refere a outro ativo ou se houve alguma alteração no ativo. Em seguida, encaminhar a informação correta para que o cadastro ou alteração possa ser feito adequadamente.
+  </answer>
+  <question>
+    Como proceder para corrigir discrepâncias entre documentos financeiros?
+  </question>
+  <answer>
+    Para corrigir discrepâncias entre documentos financeiros, é necessário identificar as diferenças específicas, como pagamentos, vencimento e valor nominal. Em seguida, deve-se ajustar os documentos para que estejam em conformidade com a escritura ou documento oficial, e comunicar qualquer alteração ou referência a outro ativo para atualização dos registros.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143393</idTicket>
+  <Summary>
+    O usuário relatou um problema de descasamento de informações referente ao "RendimentoBrutoGrossup" ao consumir dados da API de rentabilidade. A diferença foi observada entre os valores retornados pela API e os valores da carteira. O analista Marcos explicou que a diferença ocorre devido ao uso da Alíquota Única Grossup, que é aplicada como uma alíquota única de 15% na tabela de rentabilidade. Marcos ofereceu-se para esclarecer melhor a situação em uma chamada, e o usuário solicitou agendar um call para entender melhor o processo.
+  </Summary>
+  <question>
+    O que é a Alíquota Única Grossup e como ela afeta o cálculo de rentabilidade?
+  </question>
+  <answer>
+    A Alíquota Única Grossup é um parâmetro utilizado no cálculo de rentabilidade de posições de renda fixa. No sistema, ela é aplicada como uma alíquota única de 15% na tabela de rentabilidade. Quando não se utiliza a Alíquota Única Grossup, a troca das alíquotas pela tabela regressiva pode gerar uma rentabilidade negativa.
+  </answer>
+  <question>
+    Por que há uma diferença nos valores de rentabilidade entre a API e os relatórios da carteira?
+  </question>
+  <answer>
+    A diferença nos valores de rentabilidade entre a API e os relatórios da carteira ocorre devido à aplicação da Alíquota Única Grossup. A API utiliza uma alíquota única de 15%, enquanto os relatórios da carteira podem estar considerando alíquotas diferentes, resultando em valores distintos.
+  </answer>
+  <question>
+    Como posso agendar uma chamada para discutir o problema de rentabilidade?
+  </question>
+  <answer>
+    Para agendar uma chamada, você pode entrar em contato com o analista responsável, Marcos Costa, e sugerir um horário disponível. No caso deste ticket, o usuário sugeriu uma chamada na quinta-feira à tarde, após as 15h20.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143691</idTicket>
+  <Summary>
+    O usuário relatou divergências no valor patrimonial líquido (PL) entre a carteira PAS e o sistema RiskHub, mencionando que o RiskHub não está considerando os ativos de Renda Fixa do fundo. Foram identificados erros de importação relacionados a índices ou moedas não suportadas. A solicitação foi fechada e fundida com outra relacionada ao mesmo problema.
+  </Summary>
+  <question>
+    Quais são os erros de importação identificados no sistema RiskHub para o fundo mencionado?
+  </question>
+  <answer>
+    Os erros de importação incluem a necessidade de reavaliar o ISIN do XML e problemas com tags de processamento devido a índices ou moedas não suportadas, que foram ignoradas.
+  </answer>
+  <question>
+    Por que há uma divergência no valor patrimonial líquido (PL) entre a carteira PAS e o RiskHub?
+  </question>
+  <answer>
+    A divergência ocorre porque o RiskHub não está considerando os ativos de Renda Fixa do fundo.
+  </answer>
+  <question>
+    Qual foi a ação tomada em relação a esta solicitação?
+  </question>
+  <answer>
+    A solicitação foi fechada e fundida com outra solicitação (#143689) que trata do mesmo problema de divergência de PL e erros de importação.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143690</idTicket>
+  <Summary>
+    O usuário Felipe Barbugian Borges da Cunha solicitou o cancelamento da mensagem "PL Divergência e erros de importação - BLOCK NETWORKS OPPORTUNITY FIP - BR0M73CTF009". A solicitação foi fechada e combinada com a solicitação #143689, que trata do mesmo assunto.
+  </Summary>
+  <question>
+    Como posso cancelar uma mensagem específica em um ticket de suporte?
+  </question>
+  <answer>
+    Para cancelar uma mensagem específica em um ticket de suporte, você deve entrar em contato com o suporte e solicitar o cancelamento. Caso a mensagem esteja relacionada a um problema já existente em outro ticket, as solicitações podem ser fundidas.
+  </answer>
+  <question>
+    O que acontece quando duas solicitações de suporte são sobre o mesmo assunto?
+  </question>
+  <answer>
+    Quando duas solicitações de suporte são sobre o mesmo assunto, elas podem ser fundidas em uma única solicitação para facilitar o acompanhamento e a resolução do problema.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143531</idTicket>
+  <Summary>
+    O cliente solicitou assistência para gerar uma planilha com informações sobre valores brutos, IR, rendimentos e alíquotas tributadas para o Fundo 71 - OPP I, que possui notas anteriores a 1994. Foi agendada uma call para fornecer instruções sobre como utilizar a funcionalidade de criação de consultas no sistema BRITech para obter esses dados. A call foi realizada e as instruções foram passadas, encerrando o chamado.
+  </Summary>
+  <question>
+    Como posso gerar uma planilha com o valor bruto, valor do IR, rendimentos e alíquotas tributadas para o Fundo 71 - OPP I?
+  </question>
+  <answer>
+    Você pode utilizar a funcionalidade de criação de consultas no sistema BRITech. Acesse "relatórios" > "Criação de consulta" > "Posiçãofundos" para extrair os dados necessários.
+  </answer>
+  <question>
+    É possível agendar uma call para receber instruções sobre como utilizar a criação de consulta no sistema BRITech?
+  </question>
+  <answer>
+    Sim, é possível agendar uma call. No caso deste ticket, a call foi agendada e realizada para fornecer as instruções necessárias.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143157</idTicket>
+  <Summary>
+    O usuário questionou sobre o tratamento de rendimentos em ativos, especificamente sobre a aplicação de grossup e o estorno de IR. O agente de suporte esclareceu que o sistema calcula a rentabilidade considerando o grossup para ativos classificados como "Mercado Imobiliário" e quando o evento é "Rendimento" ou "Rendimento líquido".
+  </Summary>
+  <question>
+    Quando lanço um rendimento num ativo, este tem grossup na carteira?
+  </question>
+  <answer>
+    Para ativos classificados como "Mercado Imobiliário", o sistema calcula a rentabilidade considerando o grossup.
+  </answer>
+  <question>
+    Quando lanço um rendimento líquido, este estorna algum IR?
+  </question>
+  <answer>
+    Quando o rendimento é lançado como líquido, ele não estorna nenhum IR, mas também não faz grossup.
+  </answer>
+  <question>
+    O tratamento de grossup é aplicado apenas para ativos classificados como "Mercado Imobiliário"?
+  </question>
+  <answer>
+    Sim, o tratamento de grossup é aplicado para ativos em bolsa classificados como "Imobiliário" quando o evento é "Rendimento" ou "Rendimento líquido".
+  </answer>
+  <question>
+    O tipo de provento lançado no ativo influencia na aplicação do grossup?
+  </question>
+  <answer>
+    Sim, o tipo de evento, sendo "Rendimento" ou "Rendimento líquido", influencia na aplicação do grossup para ativos classificados como "Imobiliário".
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143274</idTicket>
+  <Summary>
+    O usuário solicitou o envio do arquivo XML referente à debênture CTEE19. O agente de suporte, Samyra Ledo, respondeu enviando o arquivo solicitado em formato .txt.
+  </Summary>
+  <question>
+    Como posso obter o arquivo XML da debênture CTEE19?
+  </question>
+  <answer>
+    Você pode solicitar o arquivo XML da debênture CTEE19 ao suporte da Britech Global. No caso deste ticket, o arquivo foi enviado em formato .txt, que pode ser acessado através de um link fornecido pelo suporte.
+  </answer>
+</Ticket>
+
+```xml
+<Ticket>
+  <idTicket>143273</idTicket>
+  <Summary>
+    O ajuste de PU das opções de IBOV para os portfólios BR02D6CTF008, BR047LCTF005 e BR04CGCTF005 não foi realizado, o que impacta a volatilidade e o stress test. Deborah Martins ajustou as datas e iniciou o processo de importação e cálculo. Vinicius Hiroi confirmou que esses portfólios não estavam no circuito de ajustes diários, mas se comprometeu a corrigir o PU nos próximos dias. É necessário que o ajuste de PU seja feito pela equipe de Vinicius ou pela Mellon para garantir a importação correta das informações.
+  </Summary>
+  <question>
+    Quais portfólios precisam de ajuste de PU nas opções de IBOV?
+  </question>
+  <answer>
+    Os portfólios que precisam de ajuste de PU nas opções de IBOV são BR02D6CTF008, BR047LCTF005 e BR04CGCTF005.
+  </answer>
+  <question>
+    Quem é responsável por ajustar o PU das opções de IBOV?
+  </question>
+  <answer>
+    O ajuste do PU deve ser feito pela equipe de Vinicius Hiroi ou pela Mellon para garantir que a informação seja importada corretamente.
+  </answer>
+  <question>
+    O que foi feito para corrigir o problema de importação e cálculo?
+  </question>
+  <answer>
+    Deborah Martins ajustou as datas das três carteiras e iniciou o processo de importação e cálculo. Além disso, comunicou que o lotsize está ajustado e implementado, garantindo que as quantidades sejam consideradas corretamente para o NAV.
+  </answer>
+</Ticket>
+```
+
+<Ticket>
+  <idTicket>143316</idTicket>
+  <Summary>
+    O cliente relatou que os informes de CDA gerados para os Fundos de Investimento em Participações (FIPs) estão apresentando valores incorretos, pois estão considerando o volume de compras e vendas do semestre inteiro, ao invés de apenas o último mês, como exigido pela Comissão de Valores Mobiliários (CVM). O problema afeta todos os FIPs da base do cliente. O analista Roberto está encarregado de resolver o problema e solicitou um exemplo específico para melhor compreensão. Jefferson, do lado do cliente, mencionou que a geração do CDA 4.0 pela aba Exportação Informes Legais deve ser verificada para atender à solicitação da CVM.
+  </Summary>
+  <question>
+    O que está errado nos informes de CDA gerados para os FIPs?
+  </question>
+  <answer>
+    Os informes de CDA estão apresentando o volume de compras e vendas do semestre inteiro, quando deveriam apresentar apenas os valores do último mês, conforme exigido pela CVM.
+  </answer>
+  <question>
+    Quem está encarregado de resolver o problema relatado no ticket?
+  </question>
+  <answer>
+    O analista Roberto Coelho está encarregado de resolver o problema relatado no ticket.
+  </answer>
+  <question>
+    Qual é a prioridade do ticket 143316?
+  </question>
+  <answer>
+    O ticket 143316 foi classificado como prioridade Alta.
+  </answer>
+  <question>
+    Qual é o prazo para a solução do problema conforme o SLA?
+  </question>
+  <answer>
+    A solução definitiva ou temporária deve ser apresentada em até 5 dias úteis, conforme o SLA acordado.
+  </answer>
+  <question>
+    O que Jefferson sugeriu verificar em relação à geração do CDA?
+  </question>
+  <answer>
+    Jefferson sugeriu verificar se a geração do CDA 4.0 pela aba Exportação Informes Legais atende à solicitação da CVM.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>142544</idTicket>
+  <Summary>
+    O usuário busca informações sobre a adequação das carteiras offshore às exigências da nova Lei 14.754/23, que requer um controle mais detalhado e transparente das participações dos cotistas. O sistema atual não permite identificar ou registrar os percentuais de participação de cada cotista, o que inviabiliza o atendimento às novas exigências legais. O suporte informou que o sistema Atlas-PAS possui regras de enquadramento para cotistas, mas é necessário que os cotistas estejam cadastrados no sistema. Não há menção de materiais de apoio ou treinamentos específicos, e o suporte solicita mais detalhes sobre a necessidade de reestruturação para fornecer instruções adequadas.
+  </Summary>
+  <question>
+    Existe algum material de apoio, como manuais ou treinamentos, que possa orientar sobre a adequação à Lei 14.754/23?
+  </question>
+  <answer>
+    Não foi mencionado nenhum material de apoio ou treinamento específico disponível para orientar sobre a adequação à Lei 14.754/23.
+  </answer>
+  <question>
+    O sistema possui módulos ou funcionalidades específicas que permitam controlar o passivo das offshore já existentes e realocar percentuais por cotista?
+  </question>
+  <answer>
+    Sim, o sistema Atlas-PAS possui no módulo de Enquadramento duas regras para cotistas (passivo): limite máximo e mínimo de participação de cada cotista e número máximo e mínimo de cotistas. Para funcionar, os cotistas precisam estar cadastrados no sistema.
+  </answer>
+  <question>
+    Qual seria o passo a passo recomendado para configurar ou reestruturar as carteiras offshore no sistema de forma que atendam plenamente à nova lei?
+  </question>
+  <answer>
+    O suporte solicita que o usuário informe o tipo de reestruturação necessária para que possam fornecer as instruções adequadas.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143312</idTicket>
+  <Summary>
+    O cliente relatou um erro ao tentar acessar a tabela "Consulta Ajuste de Cotas", resultando em uma exceção de divisão por zero. O problema foi classificado como de alta prioridade e encaminhado para o analista Arthur. A equipe de Sustentação corrigiu o problema e a atualização será implementada na versão de homologação. O cliente foi solicitado a validar o acesso após a atualização para que o processo de atualização em produção possa ser iniciado.
+  </Summary>
+  <question>
+    Qual era o problema ao acessar a tabela "Consulta Ajuste de Cotas"?
+  </question>
+  <answer>
+    O problema era uma exceção de divisão por zero que ocorria ao tentar acessar a tabela.
+  </answer>
+  <question>
+    Quem está responsável por resolver o problema?
+  </question>
+  <answer>
+    O analista Arthur está responsável por resolver o problema.
+  </answer>
+  <question>
+    Quando a correção será implementada na versão de homologação?
+  </question>
+  <answer>
+    A correção será implementada na versão de homologação ao final do dia seguinte à comunicação.
+  </answer>
+  <question>
+    O que o cliente deve fazer após a atualização de homologação?
+  </question>
+  <answer>
+    O cliente deve validar o acesso ao menu de "Consulta Ajuste de Cotas" na sexta-feira e informar a equipe para que o processo de atualização em produção possa ser iniciado.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143265</idTicket>
+  <Summary>
+Solicitação de ajuste de lotsize para diversas carteiras da Principal Asset Management foi realizada por Vinicius de Araujo Hiroi e confirmada como ajustada por Filipe Horiy da Atlas-Risk HUB.
+  </Summary>
+  <question>
+  Quais carteiras tiveram o lotsize ajustado?
+  </question>
+  <answer>
+  As carteiras ajustadas foram:
+  - PRINCIPAL CLARITAS HEDGE MASTER FIM LONGO PRAZO
+  - PRINCIPAL CLARITAS TOTAL RETURN MASTER FIM
+  - PRINCIPAL CLARITAS PREV FIFE FIM
+  - PETROS FOF PRINCIPAL INSTITUCIONAL FIM
+  - PRINCIPAL CLARITAS ADVISORY ICATU PREVIDENCIA FIM
+  - PRINCIPAL CLARITAS MACRO PREVIDENCIA FIFE FIM
+  - PRINCIPAL CLARITAS XP TOTAL RETURN PREV FIFE FIM
+  - CLARITAS BRASILPREV FIFE FIM
+  - CLARITAS INSTITUCIONAL MASTER FIM
+  - CLARITAS INFLACAO INSTITUCIONAL FIM
+  - CLARITAS BTG PREVIDENCIA FIM
+  </answer>
+  <question>
+  Quem confirmou o ajuste dos lotsizes?
+  </question>
+  <answer>
+  Filipe Horiy da Atlas-Risk HUB confirmou o ajuste dos lotsizes.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143030</idTicket>
+  <Summary>
+    O cliente relatou que houve uma alteração no formato da carteira em Excel, o que gerou reclamações dos gestores. Foram fornecidos arquivos para análise, incluindo um exemplo do formato correto e um do formato incorreto. O suporte informou que para manter o layout de exportação, deve-se utilizar as rotinas de exportação de posição em XLS ou APIs, pois o relatório convertido em Excel é dinâmico. O cliente foi solicitado a confirmar se a rotina foi executada corretamente.
+  </Summary>
+  <question>
+    O que causou a alteração no formato da carteira em Excel?
+  </question>
+  <answer>
+    A alteração no formato pode ter ocorrido devido ao uso inadequado das rotinas de exportação. Para manter o layout de exportação, é necessário utilizar as rotinas de exportação de posição em XLS ou APIs, pois o relatório convertido em Excel é dinâmico.
+  </answer>
+  <question>
+    Como posso garantir que o layout de exportação da carteira em Excel seja mantido?
+  </question>
+  <answer>
+    Para garantir que o layout de exportação seja mantido, deve-se utilizar as rotinas de exportação de posição em XLS ou APIs, em vez de converter o relatório diretamente para Excel.
+  </answer>
+  <question>
+    O que devo fazer se ainda tiver dúvidas sobre a exportação correta da carteira em Excel?
+  </question>
+  <answer>
+    Caso ainda tenha dúvidas sobre a exportação correta, entre em contato com o suporte para alinhamento e esclarecimentos adicionais.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>142906</idTicket>
+  <Summary>
+    O cliente relatou problemas com relatórios extraídos em Excel da carteira Cota, onde as informações estão sendo apresentadas em locais diferentes do esperado, causando divergências e reclamações dos clientes. O suporte solicitou evidências para análise e informou que a exportação correta deve ser feita através das rotinas de exportação de posição em XLS ou APIs, pois o relatório convertido em Excel é dinâmico.
+  </Summary>
+  <question>
+    Quais são os problemas relatados com os relatórios extraídos em Excel da carteira Cota?
+  </question>
+  <answer>
+    Os relatórios apresentam divergências nas informações, com dados aparecendo em locais diferentes do esperado, o que tem gerado reclamações dos clientes.
+  </answer>
+  <question>
+    Como deve ser feita a exportação correta dos relatórios para evitar divergências?
+  </question>
+  <answer>
+    A exportação correta deve ser feita utilizando as rotinas de exportação de posição em XLS ou APIs, pois o relatório convertido em Excel é dinâmico.
+  </answer>
+  <question>
+    O que o suporte solicitou ao cliente para iniciar a análise do problema?
+  </question>
+  <answer>
+    O suporte solicitou que o cliente enviasse evidências que contenham as divergências mencionadas para que a análise pudesse ser iniciada.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>142792</idTicket>
+  <Summary>
+    O cliente relatou divergências no cálculo do rendimento residual tributado no come-cotas de novembro/24 para um fundo específico e solicitou detalhes sobre a composição do saldo de rendimento líquido. O ticket foi encaminhado para análise e ajustes pela equipe de Sustentação. Após investigação, a questão foi corrigida e implementada no ambiente de produção para validação.
+  </Summary>
+  <question>
+    Qual foi o rendimento residual tributado para o fundo no come-cotas de novembro/24?
+  </question>
+  <answer>
+    O rendimento residual tributado foi revisado e corrigido. A informação detalhada foi disponibilizada para validação no ambiente de produção.
+  </answer>
+  <question>
+    A divergência no cálculo do rendimento residual afetou outros fundos além do mencionado?
+  </question>
+  <answer>
+    A equipe de suporte não especificou se outros fundos foram afetados, mas a questão foi corrigida e está disponível para validação.
+  </answer>
+  <question>
+    Qual foi o problema identificado no cálculo do rendimento residual?
+  </question>
+  <answer>
+    O problema específico não foi detalhado nas comunicações, mas foi corrigido e a solução está em produção para validação.
+  </answer>
+  <question>
+    Como posso validar se a correção foi efetiva?
+  </question>
+  <answer>
+    A correção está disponível no ambiente de produção. O cliente foi solicitado a validar o ponto corrigido.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143246</idTicket>
+  <Summary>
+    O cliente relatou uma divergência na quantidade de cotas entre os informes de rendimentos de 2023 e 2024, sem movimentações que justificassem a diferença. A quantidade de cotas implantada foi de 2038.56591000, mas o informe de 2024 mostrou 2068.56745093. O analista Marcos reprocessou a informação no ambiente de homologação e ajustou a quantidade. Foi solicitado ao cliente que reprocessasse a carteira a partir de 17/06/2024.
+  </Summary>
+  <question>
+    Qual foi a divergência encontrada na quantidade de cotas entre os informes de 2023 e 2024?
+  </question>
+  <answer>
+    A quantidade de cotas implantada foi de 2038.56591000, mas o informe de 2024 mostrou uma quantidade de 2068.56745093, sem movimentações que justificassem a diferença.
+  </answer>
+  <question>
+    O que foi feito para corrigir a divergência na quantidade de cotas?
+  </question>
+  <answer>
+    O analista Marcos reprocessou a informação no ambiente de homologação da BRITech, ajustando a quantidade de cotas.
+  </answer>
+  <question>
+    Qual foi a orientação dada ao cliente após o reprocessamento?
+  </question>
+  <answer>
+    O cliente foi orientado a reprocessar a carteira a partir de 17/06/2024.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143197</idTicket>
+  <Summary>
+    O cliente relatou um problema no processamento da carteira 605, especificamente no cálculo do PU de um título, devido a vértices duplicados na interpolação. Após análise, o caso foi encaminhado para a equipe de Sustentação para ajustes. A correção foi implementada e a atualização da versão de homologação foi programada. O cliente foi solicitado a validar o processamento após a atualização.
+  </Summary>
+  <question>
+    Qual era o problema relatado no processamento da carteira 605?
+  </question>
+  <answer>
+    O problema era a impossibilidade de calcular o PU de um título devido a vértices duplicados na interpolação durante o processamento.
+  </answer>
+  <question>
+    Qual foi a solução proposta para o problema?
+  </question>
+  <answer>
+    A solução foi corrigir o problema e atualizar a versão de homologação com a correção, solicitando ao cliente que validasse o processamento após a atualização.
+  </answer>
+  <question>
+    Quem foi responsável por tratar o chamado?
+  </question>
+  <answer>
+    O chamado foi tratado pelo analista Arthur Siqueira Sobral da equipe de Customer Service da Britech.
+  </answer>
+  <question>
+    Qual foi o prazo para a solução do problema?
+  </question>
+  <answer>
+    O prazo para a solução, conforme o SLA, era de até 5 dias úteis.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143574</idTicket>
+  <Summary>
+    O cliente enfrentou problemas com um arquivo enviado ao Banco Central do Brasil (BACEN), que gerou críticas devido a divergências no PL entre Classe e Subclasses no fundo FXN CAPITAL e falta de cadastro na estrutura de hierarquia da carteira do GRAN CAPITAL. Após ajustes e reenvio, o arquivo foi processado com sucesso.
+  </Summary>
+  <question>
+    Quais foram os erros identificados no arquivo enviado ao BACEN?
+  </question>
+  <answer>
+    Os erros foram uma divergência no PL entre Classe e Subclasses no fundo FXN CAPITAL e a falta de cadastro da estrutura de hierarquia da carteira do GRAN CAPITAL.
+  </answer>
+  <question>
+    Como foi resolvido o problema com o arquivo enviado ao BACEN?
+  </question>
+  <answer>
+    Foram realizados ajustes no arquivo e um novo envio foi feito, resultando em processamento bem-sucedido.
+  </answer>
+  <question>
+    Qual foi o resultado após o reenvio do arquivo ao BACEN?
+  </question>
+  <answer>
+    O arquivo foi aceito e processado com sucesso pelo BACEN.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143437</idTicket>
+  <Summary>
+    O cliente Gustavo Prinet relatou problemas recorrentes com a falta e duplicação de cotações de bolsa, afetando o envio das carteiras e causando desconforto com os clientes. A equipe de suporte da BRITech informou que as cotações foram disponibilizadas e que estão monitorando o ambiente para evitar a repetição do problema.
+  </Summary>
+  <question>
+    Qual era o problema relatado pelo cliente em relação às cotações de bolsa?
+  </question>
+  <answer>
+    O cliente relatou a falta e a duplicação de cotações de bolsa, o que estava afetando o envio das carteiras e causando desconforto com os clientes.
+  </answer>
+  <question>
+    Como a equipe de suporte da BRITech respondeu ao problema?
+  </question>
+  <answer>
+    A equipe de suporte informou que as cotações foram disponibilizadas e que estão monitorando o ambiente para garantir que o problema não ocorra novamente.
+  </answer>
+  <question>
+    Qual foi a data das cotações que estavam faltando?
+  </question>
+  <answer>
+    As cotações de 28/02/2025 estavam faltando.
+  </answer>
+  <question>
+    O que o cliente tentou fazer para resolver o problema antes de contatar o suporte?
+  </question>
+  <answer>
+    O cliente tentou a importação via BDIN, mas não funcionou.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>141200</idTicket>
+  <Summary>
+    O cliente solicitou o desenvolvimento de uma nova regra de enquadramento em conformidade com a ICVM 175, que monitora se um fundo opera com patrimônio líquido (PL) abaixo de R$ 1 milhão por até 90 dias consecutivos. A BRITech desenvolveu a funcionalidade e está aguardando a autorização do cliente para atualizar a base de Produção para a versão mais recente.
+  </Summary>
+  <question>
+    O que foi solicitado no chamado #139810?
+  </question>
+  <answer>
+    Foi solicitado o desenvolvimento de uma nova regra de enquadramento em conformidade com a ICVM 175, que monitora se um fundo opera com patrimônio líquido (PL) abaixo de R$ 1 milhão por até 90 dias consecutivos.
+  </answer>
+  <question>
+    A regra de enquadramento solicitada foi implementada?
+  </question>
+  <answer>
+    Sim, o desenvolvimento foi finalizado e a BRITech está aguardando a autorização do cliente para atualizar a base de Produção para a versão mais recente.
+  </answer>
+  <question>
+    Quais são as funcionalidades impactadas pela nova regra de enquadramento?
+  </question>
+  <answer>
+    As funcionalidades impactadas incluem a inclusão de um parâmetro chamado “Limite PL Fundo Diário” no Cadastro de Regras de Enquadramento, o preenchimento dos parâmetros “Número Dias” e “Valor Financeiro Mínimo”, e a inclusão de uma coluna "Dias Excedidos" no relatório de resultados em "Enquadramento >> Resultado".
+  </answer>
+  <question>
+    Qual é o orçamento estimado para o desenvolvimento da nova regra de enquadramento?
+  </question>
+  <answer>
+    O orçamento estimado é de 72 horas, incluindo Análise & Entendimento, Desenvolvimento, Testes, Homologação, Entrega assistida, Handover Funcional e Documentação.
+  </answer>
+  <question>
+    Quando a atualização para a nova versão será realizada?
+  </question>
+  <answer>
+    A atualização para a nova versão será realizada assim que o cliente autorizar.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143548</idTicket>
+  <Summary>
+    O cliente reportou uma discrepância nos preços unitários (P.U) de ativos de renda fixa (NTN-B e LFTs) cadastrados no sistema Atlas Pás, comparando com os valores do administrador do fundo Bradesco. Após análise e troca de informações, foi identificado que o problema estava no cadastro incorreto das operações pelo cliente, que foi corrigido, resolvendo a questão.
+  </Summary>
+  <question>
+    Qual era o problema relatado pelo cliente em relação aos preços unitários dos ativos?
+  </question>
+  <answer>
+    O cliente relatou que os preços unitários (P.U) dos ativos de renda fixa cadastrados no sistema Atlas Pás não estavam correspondendo aos valores praticados pelo administrador do fundo Bradesco.
+  </answer>
+  <question>
+    Como o problema foi resolvido?
+  </question>
+  <answer>
+    O cliente identificou que o problema estava no cadastro incorreto das operações no sistema. Após realizar os ajustes necessários, os valores foram conciliados corretamente.
+  </answer>
+  <question>
+    Quais tipos de ativos estavam envolvidos na discrepância de preços unitários?
+  </question>
+  <answer>
+    Os ativos envolvidos eram NTN-B e LFTs.
+  </answer>
+  <question>
+    Qual foi a resposta final do suporte após a resolução do problema?
+  </question>
+  <answer>
+    O suporte agradeceu o retorno do cliente e informou que o chamado seria encerrado, mas que o cliente poderia acionar novamente em caso de novas dúvidas.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143163</idTicket>
+  <Summary>
+  A FUNCEF solicitou a tradução de partes específicas de um guia metodológico em inglês para o português, devido a um apontamento da auditoria da Caixa Econômica. A tradução visa atender normas internas que exigem documentos em português. O material traduzido foi revisado e enviado para aprovação final.
+  </Summary>
+  <question>
+  Por que a tradução do guia metodológico foi solicitada pela FUNCEF?
+  </question>
+  <answer>
+  A tradução foi solicitada devido a um apontamento da auditoria da Caixa Econômica, que destacou a necessidade de documentos em português para atender normas internas da FUNCEF.
+  </answer>
+  <question>
+  Quais partes do guia metodológico foram traduzidas?
+  </question>
+  <answer>
+  As partes traduzidas incluem "Risk Analysis – Modeling and Forecasting", "Marginal Contribution Analytics" e "Appendix II – Estimation Process and Back Test".
+  </answer>
+  <question>
+  Quem foi responsável pela tradução e revisão do material?
+  </question>
+  <answer>
+  A tradução e revisão foram realizadas por Deborah Martins e sua equipe, incluindo Vanessa e Filipe.
+  </answer>
+  <question>
+  O que as normas da FUNCEF exigem em relação à língua dos documentos?
+  </question>
+  <answer>
+  As normas da FUNCEF exigem que documentos internos sejam redigidos em língua portuguesa, conforme especificado em regulamentos como DEX 001 07, MEG 070 02 e MEG 108 03.
+  </answer>
+</Ticket>
+
+<Ticket>
+  <idTicket>143112</idTicket>
+  <Summary>
+    O cliente solicitou informações sobre a possibilidade de cadastrar e alimentar automaticamente indicadores no sistema PAS, especificamente os índices ICB B3, IDIV B3 e SMLL B3. Foi informado que atualmente apenas o índice SMLL possui rotina automática de alimentação, enquanto os demais precisam ser importados manualmente. Além disso, foi esclarecido que o Robô Importa da Britech não pode ser utilizado para automatizar a importação desses indicadores.
+  </Summary>
+  <question>
+    É possível cadastrar e alimentar automaticamente os indicadores ICB B3 e IDIV B3 no sistema PAS?
+  </question>
+  <answer>
+    Não, atualmente apenas o índice SMLL possui uma rotina automática de alimentação no sistema PAS. Os indicadores ICB B3 e IDIV B3 precisam ser importados manualmente.
+  </answer>
+  <question>
+    O Robô Importa da Britech pode ser utilizado para automatizar a importação dos indicadores ICB B3 e IDIV B3?
+  </question>
+  <answer>
+    Não, o Robô Importa da Britech não pode ser utilizado para automatizar a importação dos indicadores ICB B3 e IDIV B3.
+  </answer>
+</Ticket>
+
