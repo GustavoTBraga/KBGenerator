@@ -125,7 +125,7 @@ def gerar_faq_openai(comentarios: List[Dict[str, Any]], ticket_id: str) -> str |
         return None
 
 # ─────── Função para salvar tudo em um único TXT ───────
-def salvar_faqs_base(faq: str, base_path: str = "baseconhecimento.txt") -> bool:
+def salvar_faqs_base(faq: str, base_path: str = "baseconhecimento_4_1.txt") -> bool:
     try:
         with open(base_path, "a", encoding="utf-8") as f:
             f.write(faq)
